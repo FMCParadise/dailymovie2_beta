@@ -32,6 +32,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $first_name = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $avatar = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
@@ -118,12 +124,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->first_name;
+    }
+
+    public function setFirstName(string $first_name): static
+    {
+        $this->first_name = $first_name;
+
+        return $this;
+    }
+
     public function getAvatar(): ?string
     {
         return $this->avatar;
     }
 
-    public function setAvatar(string $avatar): static
+    public function setAvatar(?string $avatar): static
     {
         $this->avatar = $avatar;
 
@@ -157,27 +187,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, Posts>
      */
-    public function getTitle(): Collection
+    public function getPosts(): Collection
     {
         return $this->posts;
     }
 
-    public function addTitle(Posts $posts): static
+    public function addPosts(Posts $posts): static
     {
-        if (!$this->$posts->contains($posts)) {
-            $this->$posts->add($posts);
-            $posts->setUser($this);
+        if (!$this->posts->contains($posts)) {
+            $this->posts->add($posts);
+            $posts->setUserId($this);
         }
 
         return $this;
     }
 
-    public function removeTitle(Posts $posts): static
+    public function removePosts(Posts $posts): static
     {
-        if ($this->$posts->removeElement($posts)) {
+        if ($this->posts->removeElement($posts)) {
             // set the owning side to null (unless already changed)
-            if ($posts->getUser() === $this) {
-                $posts->setUser(null);
+            if ($posts->getUserId() === $this) {
+                $posts->setUserId(null);
             }
         }
 
