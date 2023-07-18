@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PostsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -16,7 +18,7 @@ class Posts
 
     #[ORM\ManyToOne(inversedBy: 'title')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $user_id = null;
+    private ?User $user = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
@@ -24,11 +26,19 @@ class Posts
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique:true)]
     private ?string $slug = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
+
+    #[ORM\ManyToMany(targetEntity: Categories::class, inversedBy: 'posts')]
+    private Collection $categories_id;
+
+    public function __construct()
+    {
+        $this->categories_id = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -37,12 +47,12 @@ class Posts
 
     public function getUserId(): ?User
     {
-        return $this->user_id;
+        return $this->user;
     }
 
-    public function setUserId(?User $user_id): static
+    public function setUserId(?User $user): static
     {
-        $this->user_id = $user_id;
+        $this->user = $user;
 
         return $this;
     }
@@ -91,6 +101,30 @@ class Posts
     public function setCreatedAt(\DateTimeImmutable $created_at): static
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Categories>
+     */
+    public function getCategoriesId(): Collection
+    {
+        return $this->categories_id;
+    }
+
+    public function addCategoriesId(Categories $categoriesId): static
+    {
+        if (!$this->categories_id->contains($categoriesId)) {
+            $this->categories_id->add($categoriesId);
+        }
+
+        return $this;
+    }
+
+    public function removeCategoriesId(Categories $categoriesId): static
+    {
+        $this->categories_id->removeElement($categoriesId);
 
         return $this;
     }

@@ -46,12 +46,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
-    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Posts::class, orphanRemoval: true)]
-    private Collection $title;
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Posts::class, orphanRemoval: true)]
+    private Collection $posts;
 
     public function __construct()
     {
-        $this->title = new ArrayCollection();
+        $this->posts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -187,27 +187,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, Posts>
      */
-    public function getTitle(): Collection
+    public function getPosts(): Collection
     {
-        return $this->title;
+        return $this->posts;
     }
 
-    public function addTitle(Posts $title): static
+    public function addPosts(Posts $posts): static
     {
-        if (!$this->title->contains($title)) {
-            $this->title->add($title);
-            $title->setUserId($this);
+        if (!$this->posts->contains($posts)) {
+            $this->posts->add($posts);
+            $posts->setUserId($this);
         }
 
         return $this;
     }
 
-    public function removeTitle(Posts $title): static
+    public function removePosts(Posts $posts): static
     {
-        if ($this->title->removeElement($title)) {
+        if ($this->posts->removeElement($posts)) {
             // set the owning side to null (unless already changed)
-            if ($title->getUserId() === $this) {
-                $title->setUserId(null);
+            if ($posts->getUserId() === $this) {
+                $posts->setUserId(null);
             }
         }
 
