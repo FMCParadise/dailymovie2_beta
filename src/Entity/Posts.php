@@ -35,6 +35,9 @@ class Posts
     #[ORM\ManyToMany(targetEntity: Categories::class, inversedBy: 'posts')]
     private Collection $categories_id;
 
+    #[ORM\Column(length: 255)]
+    private ?string $title = null;
+
     public function __construct()
     {
         $this->categories_id = new ArrayCollection();
@@ -125,6 +128,18 @@ class Posts
     public function removeCategoriesId(Categories $categoriesId): static
     {
         $this->categories_id->removeElement($categoriesId);
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): static
+    {
+        $this->title = $title;
 
         return $this;
     }
