@@ -4,7 +4,7 @@
  * class  à utiliser comme service pour charger les catégorie a chaque fois que header est inclue
  */
 
-namespace App\Services;
+namespace App\Twig;
 
 use App\Repository\CategoriesRepository;
 use Twig\Extension\AbstractExtension;

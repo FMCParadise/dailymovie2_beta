@@ -5,75 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4376c56f-9a8a-441e-adb2-18ffacde2de3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/daily-movies.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/icons/big-icon-player.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/icons/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/icons/not_found.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/1a2084b66e95840a5e8b6d4a72e11afb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/2aa2996c0669936f6ab3cb786356a311.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/2b90e30e189c2997e723efac6637959c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/31607430245fb7e27bc1d2f43e96f66c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/33abacd5ad7964a8d659da970f32007c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/3c2593aab96c3b0790ea03fdf6b8f6e6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/48cd1b86be367cca65f2725d01a517a2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/4f966bc5d2e66d0c4191213a7e217afc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/53e2993fe253a21adbcc6c3517f0bebf.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/5983632.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/5983633.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/5983634.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/5983635.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/5983636.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/67c8e73865ba8fc9cfe628501b6b34c1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/6ae383f5bb719773fc89eb7e746d5148.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/83d150be1cecc45b684b14154fa0e095.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/940d87b3f906075a210d20beed5fbc63.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/94c8418f98d8fbdde2de5a1f9589fc1c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/96ec561d06e9f2877bf1a00167699bb4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/ae6159e81e93bf9f32586fb317002ea6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/b46f9ae0479c049ffa35dfc5702ec7c5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/ca385f0df5a60cea7349b4179b1c6341.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/ce81b43972bb97c5e35e9bca993f03df.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/cf1906db5d0dee34ad0435cbe237640c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/d2b3bd3c4d906bd5cc321b3c001a9c38.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/d3e4a116588257ad690498417a698158.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/ff6c7d59572bec791bcb29a597135ce3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/1a2084b66e95840a5e8b6d4a72e11afb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/2aa2996c0669936f6ab3cb786356a311.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/2b90e30e189c2997e723efac6637959c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/31607430245fb7e27bc1d2f43e96f66c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/3c2593aab96c3b0790ea03fdf6b8f6e6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/48cd1b86be367cca65f2725d01a517a2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/4f966bc5d2e66d0c4191213a7e217afc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/53e2993fe253a21adbcc6c3517f0bebf.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/5983632.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/5983633.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/5983634.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/5983635.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/5983636.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/67c8e73865ba8fc9cfe628501b6b34c1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/6ae383f5bb719773fc89eb7e746d5148.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/83d150be1cecc45b684b14154fa0e095.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/940d87b3f906075a210d20beed5fbc63.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/94c8418f98d8fbdde2de5a1f9589fc1c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/96ec561d06e9f2877bf1a00167699bb4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/ae6159e81e93bf9f32586fb317002ea6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/b46f9ae0479c049ffa35dfc5702ec7c5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/ca385f0df5a60cea7349b4179b1c6341.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/ce81b43972bb97c5e35e9bca993f03df.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/cf1906db5d0dee34ad0435cbe237640c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/d2b3bd3c4d906bd5cc321b3c001a9c38.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/d3e4a116588257ad690498417a698158.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/CategoriesForHeaderExtension.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/CategoriesForHeaderExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/CategoriesForHeaderExtension.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +208,7 @@
       <option name="presentableId" value="Default" />
       <updated>1689193850323</updated>
       <workItem from="1689193852869" duration="853000" />
-      <workItem from="1689683183826" duration="13826000" />
+      <workItem from="1689683183826" duration="17425000" />
     </task>
     <servers />
   </component>
