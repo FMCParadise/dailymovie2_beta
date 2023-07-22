@@ -1,20 +1,47 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello RegistrationController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1 class="text-center m-3">Inscription</h1>
+    {{ form_start(registrationForm ,  {'attr': {'class': 'd-flex flex-column justify-content-evenly align-items-center'}}) }}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {{ form_widget(registrationForm.name,
+        {'label': false,
+            'attr': {'class': 'p-2 border border-3 border-secondary-subtle rounded text-center', 'placeholder': 'Nom'}}) }}
+    <span class="mt-5 mb-2 text-danger">{{ form_errors(registrationForm.name) }}</span>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/laragon/www/dailymovies2_beta/src/Controller/RegistrationController.php'|file_link(0) }}">src/Controller/RegistrationController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/laragon/www/dailymovies2_beta/templates/registration/index.html.twig'|file_link(0) }}">templates/registration/index.html.twig</a></code></li>
+    {{ form_widget(registrationForm.first_name ,
+        {'label': false,
+            'attr':{'class' : ' p-2 border border-3 border-secondary-subtle rounded text-center'  ,'placeholder': 'Prénom'}}) }}
+    <span class="mt-3 mb-2 text-danger">{{ form_errors(registrationForm.first_name) }}</span>
+
+    {{ form_widget(registrationForm.email ,
+        {'label': false,
+            'attr':
+            {'class' : ' p-2 border border-3 border-secondary-subtle rounded text-center'  ,
+                'placeholder': 'Email',
+            }}) }}
+    <span class="mt-3 mb-2 text-danger">{{ form_errors(registrationForm.email) }}</span>
+
+
+    {{ form_widget(registrationForm.plainPassword ,
+        {'label': false,
+            'attr': {'class' : ' p-2 border border-3 border-secondary-subtle rounded text-center', 'placeholder': 'Mot de passe'}
+        }) }}
+    <span class="mt-3 mb-2 text-danger ">{{ form_errors(registrationForm.plainPassword) }}</span>
+    <p class="mt-2 text-secondary">Le mot de passe doit contenir au moins : </p>
+    <ul class="text-secondary">
+        <li>Une majsucule</li>
+        <li>Une minuscule</li>
+        <li>Un chiffre</li>
+        <li>Un caractère spécial parmis ( @?#"!+$*&_\-^% )</li>
     </ul>
-</div>
+
+    <div class="form-check form-switch m-2">
+        {{ form_widget(registrationForm.rgpd, {'attr': {
+            'class': 'form-check-input' ~ (registrationForm.rgpd.vars.value ? ' checked' : ''),
+            'id': 'flexSwitchCheckDefault',
+            'value': '0'
+        }}) }}
+    </div>
+    <button type="submit" class="btn btn-secondary mt-3">Envoyer</button>
+    {{ form_end(registrationForm) }}
 {% endblock %}
