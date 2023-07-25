@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,15 +12,32 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 
 class RegistrationController extends AbstractController
 {
     #[Route('/registration', name: 'app_registration')]
-    public function index(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $em): Response
+    public function index(
+        Request                     $request,
+        UserPasswordHasherInterface $userPasswordHasher,
+        EntityManagerInterface      $em,
+        TokenStorageInterface       $tokenStorage,
+        EventDispatcherInterface    $eventDispatcher,
+        SessionInterface            $session,
+
+    ): Response
     {
+
+        //if user is connected redirect him
+        if ($this->getUser())
+            return $this->redirectToRoute('app_home');
+
+
         $user = new User();
-        $user->setCreatedAt(new \DateTimeImmutable()) ;
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
@@ -33,19 +51,20 @@ class RegistrationController extends AbstractController
                 $em->flush();
 
                 // Automatic login
-                // $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
-                // $this->get('security.token_storage')->setToken($token);
-                // $this->get('session')->set('_security_main', serialize($token));
-                // dispatch event
-                // $event = new InteractiveLoginEvent($request, $token);
-                // $this->get('event_dispatcher')->dispatch($event);
+                $token = new UsernamePasswordToken($user, 'main', $user->getRoles());
+                $tokenStorage->setToken($token);
+                $session->set('_security_main', serialize($token));
 
-                return $this->redirectToRoute('app_homepage');
+                //dispatch
+                $event = new InteractiveLoginEvent($request, $token);
+                $eventDispatcher->dispatch($event);
+                //redirect user  after login
+                return $this->redirectToRoute('_app_home');
+            } catch (UniqueConstraintViolationException $e) {
+                $this->addFlash('error', 'Cette adresse e-mail est déjà utilisée. Veuillez en choisir une autre.');
             } catch (\Exception $e) {
-
-                dd($e->getMessage()) ;
-                // Add flash message for exception
-//                $this->addFlash('error', 'Une erreur est survenue pendant l\'enregistrement : ' . $e->getMessage());
+                $this->addFlash('error', 'Une erreur technique est survenue, merci de réessayer ');
+                dd($e->getMessage());
             }
         }
 
