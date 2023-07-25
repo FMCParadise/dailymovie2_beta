@@ -87,15 +87,15 @@
         <div class="mt-auto">
             <ul class="pagination pagination-lg justify-content-center">
                 {% if nPage > 1 %}
-                    <li class="page-item"><a class="page-link" href="/home/{{ nPage - 1 }}">Précédent</a></li>
+                    <li class="page-item"><a class="page-link" href="{{ path('app_home', {'nPage': nPage - 1}) }}">Précédent</a></li>
                 {% endif %}
                 {% for page in pagination %}
                     <li class="page-item {{ (nPage == page) ? 'active' : '' }}">
-                        <a class="page-link" href="{{ path('app_home', {'offset': page}) }}">{{ page }}</a>
+                        <a class="page-link" href="{{ path('app_home', {'nPage': page}) }}">{{ page }}</a>
                     </li>
                 {% endfor %}
                 {% if pagination|length > nPage and nPage >= 1 %}
-                    <li class="page-item"><a class="page-link" href="/home/{{ nPage + 1 }}">Suivant</a></li>
+                    <li class="page-item"><a class="page-link" href="{{ path('app_home', {'nPage': nPage + 1 }) }}">Suivant</a></li>
                 {% endif %}
             </ul>
         </div>

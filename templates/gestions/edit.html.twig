@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {% for message in app.flashes('access_denied') %}
+        <div style="max-width: 350px" class="alert m-auto text-center my-5 alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% if post is not empty %}
+        {{ dump(post) }}
+    {% endif %}
+{% endblock %}

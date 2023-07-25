@@ -1,20 +1,61 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GestionsController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <section>
+        <div class="container-fluid">
+            <h2 class="h2 m-5 text-center text-uppercase fw-bold">{{ title }}</h2>
+            <div class="row gx-3">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                {{ dump(posts) }}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/laragon/www/dailymovies2_beta/src/Controller/GestionsController.php'|file_link(0) }}">src/Controller/GestionsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/laragon/www/dailymovies2_beta/templates/gestions/index.html.twig'|file_link(0) }}">templates/gestions/index.html.twig</a></code></li>
-    </ul>
-</div>
+                {% for  article in posts %}
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <article class="card mb-5  ">
+                            <a href="{{ path('app_posts', {'slug': article.slug}) }}">
+                                <img src="/assets/images/square/{{ asset(article.image)}}" class="d-block w-100"
+                                     alt="...">
+                            </a>
+                            <div class="card-body">
+                                <div class="my-1">
+                                    <a href="{{ path('app_edit_post', {'slug': article.slug}) }}" class="btn fw-bold btn-primary">Modifier l'article</a>
+                                </div>
+                                <a  aria-label="voirs l'article {{ article.slug }}" class="d-block card-title fst-italic   text-capitalizetext-decoration-none"
+                                    href="{{ path('app_posts', {'slug': article.slug}) }}">
+                                    {{ article.title|slice(0, 25) }}...
+                                </a>
+
+                                <p class="card-text text-wrap fw-bold ">
+                                    {{ article.content|slice(0, 255) |raw }}...</p>
+                            </div>
+                            <div class="d-flex text-capitalize px-3  justify-content-between align-items-baseline">
+                                <p class="">Par : {{article.getUserId().getName() }} {{article.getUserId().getFirstName()}}</p>
+                                <p class=" fs-7 fw-light"> Créé le : {{ article.getCreatedAt().format('d-m-Y') }}</p>
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="mt-auto">
+            <ul class="pagination pagination-lg justify-content-center">
+                {% if nPage > 1 %}
+                    <li class="page-item"><a class="page-link" href="{{ path('app_gestions', {'nPage': nPage - 1}) }}">Précédent</a></li>
+                {% endif %}
+                {% for page in pagination %}
+                    <li class="page-item {{ (nPage == page) ? 'active' : '' }}">
+                        <a class="page-link" href="{{ path('app_gestions', {'nPage': page}) }}">{{ page }}</a>
+                    </li>
+                {% endfor %}
+                {% if pagination|length > nPage and nPage >= 1 %}
+                    <li class="page-item"><a class="page-link" href="{{ path('app_gestions', {'nPage': nPage + 1 }) }}">Suivant</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </section>
+
+
+
+
 {% endblock %}
