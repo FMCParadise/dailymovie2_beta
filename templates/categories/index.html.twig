@@ -5,39 +5,37 @@
 
 {% block body %}
 
-		<section>
+	<section>
 		<h2 class="h2 m-5 text-center text-uppercase fw-bold">Listes des articles dans la catégorie :
-	{% for post in posts %}
-	
-		</h2>
+			{% for post in posts %}
 
-		<div class="col-lg-3 col-md-4 col-sm-6">
-			<article class="card mb-5  ">
-				<a href="/article/1/uncharted-film">
-					<img src="{{ asset ('assets/images/square/5983632.jpg') }} " alt="..." class="d-block w-100" alt="...">
-				</a>
-				<div class="card-body">
-					<h4 class="card-title fst-italic  text-capitalize">
-						<a class="text-decoration-none" href="">
-							{{ post.title }}
-							<a>c'est tout</a>
+			</h2>
+
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<article class="card mb-5  ">
+					<a href="/article/1/uncharted-film">
+						<img src="/assets/images/full/{{ asset(post.image)}}" class="d-block w-100" alt="...">
+					</a>
+					<div class="card-body">
+						<a aria-label="voirs l'article {{ post.slug }}" class="d-block card-title fst-italic   text-capitalizetext-decoration-none" href="/article/{{ post.id }}/{{ post.slug }}">
+							{{ post.title|slice(0, 25) }}...
 						</a>
-					</h4>
 
+						{# <p class="card-text text-wrap fw-bold "> #}
+						{# {{ post.content|slice(0, 255) }}...</p> #}
+					</div>
+					<div class="d-flex text-capitalize px-3 gap-3  justify-content-center align-items-baseline">
+						<p class="">Par :
+							{{post.getUserId().getName() }}
+							{{post.getUserId().getFirstName()}}</p>
+						<p class=" fs-7 fw-light">
+							Créé le :
+							{{ post.getCreatedAt().format('d-m-Y')  }}</p>
+					</div>
+				</article>
+			</div>
+		</section>
 
-				</div>
-				<div class="d-flex text-capitalize px-3  justify-content-between align-items-baseline">
-					<p class="">
-						moucci hamid</p>
-
-					<p class=" fs-7 fw-light">
-						Créé le : 24 jul 2023</p>
-
-				</div>
-			</article>
-		</div>
-	</section>
-	
 	{% endfor %}
 
 {% endblock %}
