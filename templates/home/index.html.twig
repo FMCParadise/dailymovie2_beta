@@ -23,7 +23,7 @@
                 {% for key, article in posts|slice(0, 3) %}
 
                     <div class="carousel-item {{ (key is same as(0)) ? 'active' : '' }}">
-                        <a href="/article/{{ article.id }}/{{ article.slug }}">
+                        <a href="/posts/{{ article.slug }}">
                             <img src="/assets/images/full/{{ asset(article.image)}}" class="d-block w-100" alt="...">
                         </a>
                         <div class="carousel-caption d-none d-md-block">
@@ -60,7 +60,7 @@
                 {% for key, article in posts|slice(3, 4) %}
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <article class="card mb-5  ">
-                            <a href="/article/{{ article.id }}/{{ article.slug }}">
+                            <a href="/posts/{{ article.slug }}">
                                 <img src="/assets/images/square/{{ asset(article.image)}}" class="d-block w-100"
                                      alt="...">
                             </a>
@@ -84,21 +84,21 @@
             </div>
         </div>
 
-{#        <div class="mt-auto">#}
-{#            <ul class="pagination pagination-lg justify-content-center">#}
-{#                {% if nPage > 1 %}#}
-{#                    <li class="page-item"><a class="page-link" href="/home/{{ nPage - 1 }}">Précédent</a></li>#}
-{#                {% endif %}#}
-{#                {% for page in pages %}#}
-{#                    <li class="page-item {{ (nPage is same as(page)) ? 'active' : '' }} ">#}
-{#                        <a class="page-link " href="/home/{{ page }}">{{ page }}</a>#}
-{#                    </li>#}
-{#                {% endfor %}#}
-{#                {% if pages|length > nPage and nPage >= 1 %}#}
-{#                    <li class="page-item"><a class="page-link" href="/home/{{ nPage + 1 }}">Suivant</a></li>#}
-{#                {% endif %}#}
-{#            </ul>#}
-{#        </div>#}
+        <div class="mt-auto">
+            <ul class="pagination pagination-lg justify-content-center">
+                {% if nPage > 1 %}
+                    <li class="page-item"><a class="page-link" href="/home/{{ nPage - 1 }}">Précédent</a></li>
+                {% endif %}
+                {% for page in pagination %}
+                    <li class="page-item {{ (nPage == page) ? 'active' : '' }}">
+                        <a class="page-link" href="{{ path('app_home', {'offset': page}) }}">{{ page }}</a>
+                    </li>
+                {% endfor %}
+                {% if pagination|length > nPage and nPage >= 1 %}
+                    <li class="page-item"><a class="page-link" href="/home/{{ nPage + 1 }}">Suivant</a></li>
+                {% endif %}
+            </ul>
+        </div>
 
     </section>
 

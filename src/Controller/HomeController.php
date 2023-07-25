@@ -17,9 +17,19 @@ class HomeController extends AbstractController
     public function index(PostsRepository $postsRepository, Request $request): Response
     {
         $offset = $request->get('offset', 0);
-        $posts = $postsRepository->findBy([] , ["id"=>"DESC"] , 7, $offset) ;
+        $limit = 7; // posts par page
+        $posts = $postsRepository->findBy([], ["id" => "DESC"], $limit, $offset);
+
+        $totalPosts = $postsRepository->count([]); // obtenir le nombre total de posts
+        $totalPages = ceil($totalPosts / $limit); // calculer le nombre total de pages
+
+        // Générer la pagination
+        $pagination = range(1, $totalPages);
+
         return $this->render('home/index.html.twig', [
             'posts' => $posts,
+            'nPage' => $offset === 0 ? 1 : $offset,
+            'pagination' => $pagination,
         ]);
     }
 }
