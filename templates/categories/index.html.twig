@@ -1,20 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoriesController!{% endblock %}
+{% block title %}AYA
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<section>
+		<h2 class="h2 m-5 text-center text-uppercase fw-bold">Listes des articles dans la catégorie :
+			{% for post in posts %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/laragon/www/dailymovies2_beta/src/Controller/CategoriesController.php'|file_link(0) }}">src/Controller/CategoriesController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/laragon/www/dailymovies2_beta/templates/categories/index.html.twig'|file_link(0) }}">templates/categories/index.html.twig</a></code></li>
-    </ul>
-</div>
+			</h2>
+
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<article class="card mb-5  ">
+					<a href="/article/1/uncharted-film">
+						<img src="/assets/images/full/{{ asset(post.image)}}" class="d-block w-100" alt="...">
+					</a>
+					<div class="card-body">
+						<a aria-label="voirs l'article {{ post.slug }}" class="d-block card-title fst-italic   text-capitalizetext-decoration-none" href="/article/{{ post.id }}/{{ post.slug }}">
+							{{ post.title|slice(0, 25) }}...
+						</a>
+
+						{# <p class="card-text text-wrap fw-bold "> #}
+						{# {{ post.content|slice(0, 255) }}...</p> #}
+					</div>
+					<div class="d-flex text-capitalize px-3 gap-3  justify-content-center align-items-baseline">
+						<p class="">Par :
+							{{post.getUserId().getName() }}
+							{{post.getUserId().getFirstName()}}</p>
+						<p class=" fs-7 fw-light">
+							Créé le :
+							{{ post.getCreatedAt().format('d-m-Y')  }}</p>
+					</div>
+				</article>
+			</div>
+		</section>
+
+	{% endfor %}
+
 {% endblock %}
