@@ -1,9 +1,24 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
 
-{{dump(post[0].title)}}
-
+<section class="mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="m-5 text-center">{{ post.title }}</h1>
+                {% if post.image is defined and post.image is not empty %}
+                    <img src="/assets/images/full/{{ post.image }}" class="xl-50 me-3 mb-3 rounded img-fluid" alt="...">
+                {% endif %}
+                <p>{{ post.content }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% for cat in post.getCategoriesId() %}
+            <a href="/categories/{{ cat.slug }}" class="btn m-1 btn-dark">#{{ cat.name}}</a>
+        {% endfor %}
+    </div>
+</section>
 
 {% endblock %}
