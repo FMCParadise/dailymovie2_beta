@@ -71,7 +71,7 @@
                                 </a>
 
                                 <p class="card-text text-wrap fw-bold ">
-                                    {{ article.content|slice(0, 255) }}...</p>
+                                    {{ article.content|slice(0, 255) |raw }}...</p>
                             </div>
                             <div class="d-flex text-capitalize px-3  justify-content-between align-items-baseline">
                                 <p class="">Par : {{article.getUserId().getName() }} {{article.getUserId().getFirstName()}}</p>
