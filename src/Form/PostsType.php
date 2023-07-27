@@ -4,22 +4,34 @@ namespace App\Form;
 
 use App\Entity\Posts;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class PostsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('content')
-            ->add('image')
-            ->add('slug')
-            ->add('created_at')
             ->add('title')
-            ->add('user')
-            ->add('categories_id')
-        ;
+            ->add('slug')
+            ->add('image', FileType::class, [
+                'mapped' => false,
+                'required' => true,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '25M',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg',
+                            'image/jpg',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez télécharger une image valide (PNG ou JPG).',
+                    ])
+                ],
+            ])
+            ->add('content');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

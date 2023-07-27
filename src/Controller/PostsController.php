@@ -4,7 +4,9 @@
 
 namespace App\Controller;
 
+use App\Form\PostsType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Posts;
@@ -17,6 +19,28 @@ class PostsController extends AbstractController
     {
         return $this->render('posts/index.html.twig', [
             'post' => $posts,
+        ]);
+    }
+
+    #[Route('gestions/add', name: 'app_add_post')]
+    public function add(Request $request): Response
+    {
+        $post = new Posts();
+        $form = $this->createForm(PostsType::class, $post);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            dd($form);
+
+//            $entityManager = $this->getDoctrine()->getManager();
+//            $entityManager->persist($post);
+//            $entityManager->flush();
+//            return $this->redirectToRoute('app_gestions');
+        }
+
+        return $this->render('gestions/add.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }

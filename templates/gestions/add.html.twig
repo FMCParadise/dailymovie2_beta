@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    {{ form_start(form ,  {'attr': {'class': 'container-fluid position-relative m-auto mt-3'}}) }}
+    <div class="d-flex flex-column">
+        <div class="form-input">
+            <div class="input-group  mb-3">
+                <span class="mt-3 mb-2 text-danger">{{ form_errors(form.title) }}</span>
+                <label class="fw-bold input-group-text" id="form-title" for="title">Title Pour l'article</label>
+                {{ form_widget(form.title,
+                    {"label": "Title Pour l'article",
+                        "attr": {
+                        "class": "form-control", 'placeholder': 'Spiderman de bretagne'
+                    }
+                    }) }}
+            </div>
+            <div class="input-group  mb-3">
+                <span class="mt-3 mb-2 text-danger">{{ form_errors(form.slug) }}</span>
+                <label class="fw-bold input-group-text" id="form-slug" for="slug">Slug Pour l'article</label>
+                {{ form_widget(form.slug,
+                    {"label": "Title Pour l'article",
+                        "attr": {
+                        "class": "form-control", 'placeholder': 'exemple : Sortie de Spiderman le breton ( min: 50 characters )'
+                    }
+                    }) }}
+            </div>
+            <div class="form-input-file">
+                <div class=" mb-3">
+                    <label class="fw-bold my-1 ms-1" id="form-file" for="file">L'affiche de l'article</label>
+                    {{ form_widget(form.image,
+                        {"label": "Affiche Pour l'article",
+                            "attr": {
+                            "class": "form-control",
+                            "accept" : "image/*"
+                        }
+                        }) }}
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    {{ form_end(form) }}
+    {{ dump(form) }}
+{% endblock %}
