@@ -5,6 +5,7 @@
 namespace App\Controller;
 
 use App\Form\PostsType;
+use App\Repository\CategoriesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,15 +24,19 @@ class PostsController extends AbstractController
     }
 
     #[Route('gestions/add', name: 'app_add_post')]
-    public function add(Request $request): Response
+    public function add(Request $request , CategoriesRepository $categories): Response
     {
         $post = new Posts();
         $form = $this->createForm(PostsType::class, $post);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
 
-            dd($form);
+
+        if ($form->isSubmitted()) {
+
+            dd( $form->getErrors());
+
+
 
 //            $entityManager = $this->getDoctrine()->getManager();
 //            $entityManager->persist($post);
@@ -41,6 +46,7 @@ class PostsController extends AbstractController
 
         return $this->render('gestions/add.html.twig', [
             'form' => $form->createView(),
+            'categories' => $categories->findAll()
         ]);
     }
 }
