@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4376c56f-9a8a-441e-adb2-18ffacde2de3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/includes/footer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategoriesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/PostsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PostsType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PostsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PostsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/categories/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categories/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/gestions/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestions/add.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +219,7 @@
       <updated>1689193850323</updated>
       <workItem from="1689193852869" duration="853000" />
       <workItem from="1689683183826" duration="30916000" />
-      <workItem from="1690050181114" duration="37386000" />
+      <workItem from="1690050181114" duration="40231000" />
     </task>
     <servers />
   </component>

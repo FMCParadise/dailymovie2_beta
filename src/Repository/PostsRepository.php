@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Categories;
 use App\Entity\Posts;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -21,20 +22,14 @@ class PostsRepository extends ServiceEntityRepository
         parent::__construct($registry, Posts::class);
     }
 
-//    /**
-//     * @return Posts[] Returns an array of Posts objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function getPostsByCategories(Categories $categories)
+    {
+        $qb = $this->createQueryBuilder("p")
+            ->where(':categories MEMBER OF p.categories_id')
+            ->setParameters(array('categories' => $categories))
+        ;
+        return $qb->getQuery()->getResult();
+    }
 
 //    public function findOneBySomeField($value): ?Posts
 //    {

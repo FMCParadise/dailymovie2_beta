@@ -2,6 +2,14 @@
 
 {% block body %}
 
+
+    {{
+
+
+    dump(form_errors(form.title))
+
+    }}
+
     {{ form_start(form ,  {'attr': {'class': 'container-fluid position-relative m-auto mt-3'}}) }}
     <div class="d-flex flex-column m-auto " style="max-width: 900px">
         <div class="form-input">

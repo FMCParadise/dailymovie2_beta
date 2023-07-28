@@ -23,8 +23,12 @@
         {% block header %}
             {% include 'includes/header.html.twig' %}
         {% endblock %}
-        <main>
+        <main style= "height: 100vh">
             {% block body %}{% endblock %}
         </main>
+        {% block footer %}
+                {% include 'includes/footer.html.twig' %}
+            {% endblock %}
     </body>
+            
 </html>

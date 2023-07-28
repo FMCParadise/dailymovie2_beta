@@ -7,37 +7,37 @@
 
 
 	<div class="container-fluid">
-    <div class="row gx-3">
-        <section>
-            <h2 class="h2 m-5 text-center text-uppercase fw-bold">Listes des articles dans la catégorie :</h2>
-        </section>
-        {% for post in posts %}
-        <div class="col-lg-3 col-md-4 col-sm-6">
-            <article class="card mb-5">
-                <a href="/posts/{{ post.slug }}">
-                    <img src="/assets/images/square/{{ asset(post.image)}}" class="d-block w-100" alt="...">
-                </a>
-                <div class="card-body">
-                    <a aria-label="voirs l'article {{ post.slug }}" class="d-block card-title fst-italic text-capitalize text-decoration-none" href="/article/{{ post.id }}/{{ post.slug }}">
-                        {{ post.title|slice(0, 25) }}...
-                    </a>
+		<div class="row gx-3">
+			<section>
+				<h2 class="h2 m-5 text-center text-uppercase fw-bold">Listes des articles dans la catégorie :</h2>
+			</section>
+			{% for post in posts %}
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<article class="card mb-5">
+						<a href="/posts/{{ post.slug }}">
+							<img src="/assets/images/square/{{ asset(post.image)}}" class="d-block w-100" alt="...">
+						</a>
+						<div class="card-body">
+							<a aria-label="voirs l'article {{ post.slug }}" class="d-block card-title fst-italic text-capitalize text-decoration-none" href="/article/{{ post.id }}/{{ post.slug }}">
+								{{ post.title|slice(0, 25) }}...
+							</a>
 
-                    {# <p class="card-text text-wrap fw-bold "> #}
-                    {# {{ post.content|slice(0, 255) |raw }}...</p> #}
-                </div>
-                <div class="d-flex text-capitalize px-3 justify-content-between align-items-baseline">
-                    <p class="">Par :
-                        {{post.getUserId().getName() }}
-                        {{post.getUserId().getFirstName()}}</p>
-                    <p class="fs-7 fw-light">
-                        Créé le :
-                        {{ post.getCreatedAt().format('d-m-Y') }}</p>
-                </div>
-            </article>
-        </div>
-        {% endfor %}
-    </div>
-</div>
+							{# <p class="card-text text-wrap fw-bold "> #}
+							{# {{ post.content|slice(0, 255) |raw }}...</p> #}
+						</div>
+						<div class="d-flex text-capitalize px-3 justify-content-between align-items-baseline">
+							<p class="">Par :
+								{{post.getUserId().getName() }}
+								{{post.getUserId().getFirstName()}}</p>
+							<p class="fs-7 fw-light">
+								Créé le :
+								{{ post.getCreatedAt().format('d-m-Y') }}</p>
+						</div>
+					</article>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 
 
-		{% endblock %}
+{% endblock %}

@@ -23,6 +23,13 @@ class PostsController extends AbstractController
         ]);
     }
 
+
+    #[Route("/posts/user/{user}", name : 'app_posts_user')]
+    public  function  postsByUser(Posts $posts) : Response{
+
+
+    }
+
     #[Route('gestions/add', name: 'app_add_post')]
     public function add(Request $request , CategoriesRepository $categories): Response
     {
@@ -32,21 +39,26 @@ class PostsController extends AbstractController
 
 
 
-        if ($form->isSubmitted()) {
-
-            dd( $form->getErrors());
-
-
-
-//            $entityManager = $this->getDoctrine()->getManager();
-//            $entityManager->persist($post);
-//            $entityManager->flush();
-//            return $this->redirectToRoute('app_gestions');
-        }
+//        if ($form->isSubmitted()) {
+//
+//            dd( $form->getErrors());
+//
+//
+//
+////            $entityManager = $this->getDoctrine()->getManager();
+////            $entityManager->persist($post);
+////            $entityManager->flush();
+////            return $this->redirectToRoute('app_gestions');
+//        }
 
         return $this->render('gestions/add.html.twig', [
             'form' => $form->createView(),
             'categories' => $categories->findAll()
         ]);
     }
+
+
+
+
+
 }
