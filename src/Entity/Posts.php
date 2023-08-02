@@ -41,6 +41,7 @@ class Posts
     public function __construct()
     {
         $this->categories_id = new ArrayCollection();
+        $this->setCreatedAt(new \DateTimeImmutable()) ;
     }
 
     public function getId(): ?int
