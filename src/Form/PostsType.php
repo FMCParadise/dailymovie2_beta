@@ -36,7 +36,6 @@ class PostsType extends AbstractType
 
         $builder
             ->add('title', TextType::class, [
-
                 'required' => true,
                 'constraints' => [
                     new Length([
@@ -58,7 +57,7 @@ class PostsType extends AbstractType
                         'min' => 20,
                         'max' => 100,
                         'minMessage' => 'Le slug doit comporter au minimum 20 caractères.',
-                        'maxMessage' => 'Le Titre doit comporter au maximum 100 caractères.',
+                        'maxMessage' => 'Le slug doit comporter au maximum 100 caractères.',
                     ]),
                 ],
             ])
@@ -67,7 +66,6 @@ class PostsType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new NotBlank(null, "Une affiche est obligatoire"),
-
                     new File([
                         'maxSize' => '25M',
                         'mimeTypes' => [
@@ -105,21 +103,32 @@ class PostsType extends AbstractType
                 ],
             ]);
 
-
-        //check slug
-        $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) use ($postsRepository) {
-            $data = $event->getData();
-            if (isset($data['slug']) && !empty($data['slug'])) {
-                $slug = Slugger::slugify($data['slug']);
-                $data['slug'] = $slug;
-                $slugSuffix = 2;
-                while ($postsRepository->findBySlug($data['slug'])) {
-                    $data['slug'] = $slug . '-' . $slugSuffix;
-                    $slugSuffix++;
-                }
-                $event->setData($data);
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
+            $post = $event->getData();
+            $form = $event->getForm();
+            $isEdit = $post && $post->getId() !== null;
+            $constraints = [];
+            if (!$isEdit) {
+                $constraints[] = new NotBlank(null, "Une affiche est obligatoire");
             }
+
+            $constraints[] = new File([
+                'maxSize' => '25M',
+                'mimeTypes' => [
+                    'image/png',
+                    'image/jpeg',
+                    'image/jpg',
+                ],
+                'mimeTypesMessage' => 'Veuillez télécharger une image valide (PNG ou JPG).',
+            ]);
+
+            $form->add('image', FileType::class, [
+                'mapped' => false,
+                'required' => !$isEdit,
+                'constraints' => $constraints,
+            ]);
         });
+
     }
 
 

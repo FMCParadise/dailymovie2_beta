@@ -2,9 +2,15 @@
 
 namespace App\Services;
 
+use App\Repository\PostsRepository;
+
 class Slugger
 {
-    public static  function slugify(string $text): string
+    public function __construct(private readonly PostsRepository $postsRepository)
+    {
+    }
+
+    public static function slugify(string $text): string
     {
         // Remplace les caractères non lettres ou chiffres par "-"
         $text = preg_replace('~[^\pL\d]+~u', '-', $text);
@@ -28,4 +34,19 @@ class Slugger
 
         return $text;
     }
+
+    public function checkSlug(string $text): string
+    {
+        $slug = $this->slugify($text);
+
+        //check slug
+        $slugSuffix = 2;
+        while ($this->postsRepository->findBySlug($slug)) {
+            $slug = $slug . '-' . $slugSuffix;
+            $slugSuffix++;
+        }
+
+        return $slug;
+    }
+
 }

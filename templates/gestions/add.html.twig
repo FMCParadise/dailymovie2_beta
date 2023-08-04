@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% if form.vars.value.image is not null %}
+        <div class="container my-4">
+            <img src="/assets/images/full/{{ asset(form.vars.value.image)}}"
+                 class="w-50 d-block m-auto rounded" alt="...">
+        </div>
+    {% endif %}
     {{ form_start(form ,  {'attr': {'class': 'container-fluid position-relative m-auto mt-3'}}) }}
     <div class="d-flex flex-column m-auto " style="max-width: 900px">
         <div class="form-input">
