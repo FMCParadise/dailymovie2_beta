@@ -22,14 +22,31 @@ class PostsRepository extends ServiceEntityRepository
         parent::__construct($registry, Posts::class);
     }
 
-    public function getPostsByCategories(Categories $categories)
+    public function getPostsByCategories(Categories $categories, int $limit = 4, int $offset = 0)
     {
         $qb = $this->createQueryBuilder("p")
             ->where(':categories MEMBER OF p.categories_id')
-            ->setParameters(array('categories' => $categories))
+            ->setParameters(array('categories' => $categories)) 
+            ->setMaxResults($limit) 
+            ->setFirstResult($offset)
         ;
-        return $qb->getQuery()->getResult();
+        $data =  $qb->getQuery()->getResult();
+
+        $totalPosts = $this->getEntityManager()->createQueryBuilder()->select('count(p.id)')->from(Posts::class, 'p')
+        ->where(':categories MEMBER OF p.categories_id')
+        ->setParameters(array('categories' => $categories)) 
+        
+        ->getQuery()->getSingleScalarResult();
+
+        return [
+            'data' => $data,
+            'total' => $totalPosts
+        ];
+
+
+
     }
+
 
 //    public function findOneBySomeField($value): ?Posts
 //    {

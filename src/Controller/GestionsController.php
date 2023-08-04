@@ -30,7 +30,7 @@ class GestionsController extends AbstractController
             $title = "Liste de vos articles";
         }
 
-                $limit = 8; // post par page
+        $limit = 8; // post par page
         $nPage = $request->get('nPage', 1);
         $nPage = max($nPage, 1);
         $offset = ($nPage - 1) * $limit;
@@ -57,7 +57,7 @@ class GestionsController extends AbstractController
 
         //check autorisation
         if (!$user || ($posts->getUserId()->getId() !== $user->getId()
-                && !in_array('ROLE_ADMIN', $user->getRoles()))) {
+            && !in_array('ROLE_ADMIN', $user->getRoles()))) {
             $this->addFlash('access_denied', "Accès refusé");
             return $this->render('gestions/edit.html.twig', ['post' => []]);
         }
@@ -67,5 +67,4 @@ class GestionsController extends AbstractController
             'post' => $posts
         ]);
     }
-
 }
