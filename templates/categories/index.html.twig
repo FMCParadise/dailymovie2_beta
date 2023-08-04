@@ -34,6 +34,25 @@
 								{{ post.getCreatedAt().format('d-m-Y') }}</p>
 						</div>
 					</article>
+						<div class="mt-auto">
+							<ul class="pagination pagination-lg justify-content-center">
+								{% if nPage > 1 %}
+									<li class="page-item">
+										<a class="page-link" href="{{ path('app_categories', {'nPage': nPage - 1, 'slug': slug}) }}">Précédent</a>
+									</li>
+								{% endif %}
+								{% for page in pagination %}
+									<li class="page-item {{ (nPage == page) ? 'active' : '' }}">
+										<a class="page-link" href="{{ path('app_categories', {'nPage': nPage, 'slug': slug }) }}">{{ nPage }}</a>
+									</li>
+								{% endfor %}
+								{% if pagination|length > nPage and nPage >= 1 %}
+									<li class="page-item">
+										<a class="page-link" href="{{ path('app_categories', {'nPage': nPage + 1, 'slug': slug }) }}">Suivant</a>
+									</li>
+								{% endif %}
+							</ul>
+						</div>
 				</div>
 
 			{% endfor %}
