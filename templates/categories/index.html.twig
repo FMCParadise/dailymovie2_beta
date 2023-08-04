@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AYA
+{% block title %}How to code 101 ?
 {% endblock %}
 
 {% block body %}
@@ -9,7 +9,7 @@
 	<div class="container-fluid">
 		<div class="row gx-3">
 			<section>
-				<h2 class="h2 m-5 text-center text-uppercase fw-bold">Listes des articles dans la catégorie :</h2>
+				<h2 class="h2 m-5 text-center text-uppercase fw-bold">Listes des articles dans la catégorie : {{slug}} </h2>
 			</section>
 			{% for post in posts %}
 				<div class="col-lg-3 col-md-4 col-sm-6">
@@ -35,8 +35,28 @@
 						</div>
 					</article>
 				</div>
+
 			{% endfor %}
 		</div>
+	</div>
+	<div class="mt-auto">
+		<ul class="pagination pagination-lg justify-content-center">
+			{% if nPage > 1 %}
+				<li class="page-item">
+					<a class="page-link" href="{{ path('app_categories', {'nPage': nPage - 1, 'slug': slug}) }}">Précédent</a>
+				</li>
+			{% endif %}
+			{% for page in pagination %}
+				<li class="page-item {{ (nPage == page) ? 'active' : '' }}">
+					<a class="page-link" href="{{ path('app_categories', {'nPage': nPage, 'slug': slug}) }}">{{ page }}</a>
+				</li>
+			{% endfor %}
+			{% if pagination|length > nPage and nPage >= 1 %}
+				<li class="page-item">
+					<a class="page-link" href="{{ path('app_categories', {'nPage': nPage + 1, 'slug': slug}) }}">Suivant</a>
+				</li>
+			{% endif %}
+		</ul>
 	</div>
 
 
