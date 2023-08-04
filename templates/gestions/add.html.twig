@@ -1,0 +1,131 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if form.vars.value.image is not null %}
+        <div class="container my-4">
+            <img src="/assets/images/full/{{ asset(form.vars.value.image)}}"
+                 class="w-50 d-block m-auto rounded" alt="...">
+        </div>
+    {% endif %}
+    {{ form_start(form ,  {'attr': {'class': 'container-fluid position-relative m-auto mt-3'}}) }}
+    <div class="d-flex flex-column m-auto " style="max-width: 900px">
+        <div class="form-input">
+            <span class="mt-3 mb-2 d-block text-danger">{{ form_errors(form.title) }}</span>
+            <div class="input-group  mb-3">
+                <label class="fw-bold input-group-text" id="form-title" for="title">Title Pour l'article</label>
+                {{ form_widget(form.title,
+                    {"label": "Title Pour l'article",
+                        "attr": {
+                        "class": "form-control", 'placeholder': 'exemple : Spiderman de bretagne'
+                    }
+                    }) }}
+            </div>
+            <span class="mt-3 mb-2 text-danger">{{ form_errors(form.slug) }}</span>
+            <div class="input-group  mb-3">
+                <label class="fw-bold input-group-text" id="form-slug" for="slug">Slug Pour l'article</label>
+                {{ form_widget(form.slug,
+                    {"label": "Title Pour l'article",
+                        "attr": {
+                        "class": "form-control", 'placeholder': 'exemple : Sortie de Spiderman le breton ( min: 50 characters )'
+                    }
+                    }) }}
+            </div>
+            <div class="form-input-file">
+                <div class=" mb-3">
+                    <span class="mt-3 mb-2 text-danger">{{ form_errors(form.image) }}</span>
+
+                    <label class="fw-bold my-1 ms-1" id="form-file" for="file">L'affiche de l'article</label>
+                    {{ form_widget(form.image,
+                        {"label": "Affiche Pour l'article",
+                            "attr": {
+                            "class": "form-control",
+                            "accept" : "image/*"
+                        }
+                        }) }}
+                </div>
+
+            </div>
+            <span class="mt-3 mb-2 text-danger">{{ form_errors(form.content) }}</span>
+            <div class="form-textarea ">
+                <label class="fw-bold my-1 ms-1" for="wyswig">Contenu de l'article</label>
+                {{ form_widget(form.content,
+                    {"label": "Contenu de l'article , minimum de 300 characters",
+                        "attr": {
+                        "class": "mt-2 text-break overflow-visible rounded",
+                        "id" : "wyswig"
+                    }
+                    }) }}
+            </div>
+
+
+            <!-- les catégories -->
+
+            <div class="container-fluid my-4">
+                <fieldset class="d-block my-3">
+                    <span class="mt-3 mb-2 text-danger">{{ form_errors(form.categories_id) }}</span>
+
+                    <label class="fw-bold fs-5" for="categories">Ajouter une catégorie</label>
+                    {% for categorie in form.categories_id %}
+                        <div class="d-inline-block mb-2">
+                            {{ form_widget(categorie,
+                                {"attr": {
+                                    "class": "btn-check",
+                                    "id": "check-" ~ categorie.vars.value,
+                                }
+                                }) }}
+                            {{ form_label(categorie, null, {"label_attr": {"class": "btn btn-outline-dark", "for": "check-" ~ categorie.vars.value}}) }}
+                        </div>
+                    {% endfor %}
+                    <a class="btn btn-outline-dark fw-bold" href="/gestions/categories">
+                        <i class="bi bi-patch-plus me-2"></i>Ajouter une catégorie
+                    </a>
+                </fieldset>
+
+            </div>
+
+
+
+{#            </div>#}
+        </div>
+    </div>
+    <input aria-label="envoyer le formulaire"  type="submit"  style="width: 200px"
+            class="my-2 m-auto d-block  btn btn-success text-center border border-secondary rounded-pill">
+    </input>
+    {{ form_end(form) }}
+
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
+    <script type="text/javascript">
+        ClassicEditor
+            .create(document.querySelector('#posts_content'), {
+                toolbar: {
+                    items: [
+                        'undo',
+                        'redo',
+                        'heading',
+                        '|',
+                        'alignment',
+                        'bold',
+                        'italic',
+                        'link',
+                        'bulletedList',
+                        'numberedList',
+                        'blockQuote',
+                    ]
+                },
+                heading: {
+                    options: [
+                        {model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph'},
+                        {model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1'},
+                        {model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2'}
+                    ]
+                },
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+{% endblock %}
+
+
