@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Posts;
 use App\Repository\PostsRepository;
+use App\Entity\User;
 
 class PostsController extends AbstractController
 {
@@ -24,11 +25,23 @@ class PostsController extends AbstractController
     }
 
 
-    #[Route("/posts/user/{user}", name : 'app_posts_user')]
-    public  function  postsByUser(Posts $posts) : Response{
+    #[Route("/posts/user/{userId}", name: 'app_posts_user')]
+    public function postsByUser(int $userId, ManagerRegistry $registry): Response
+    {
+        $user = $registry->getRepository(User::class)->find($userId);
 
+        if (!$user) {
+            throw $this->createNotFoundException('Auteur non trouvé pour l\'ID ' . $userId);
+        }
 
+        $posts = $registry->getRepository(Posts::class)->findBy(['author' => $user]);
+
+        return $this->render('posts_by_user.html.twig', [
+            'user' => $user,
+            'posts' => $posts,
+        ]);
     }
+
 
     #[Route('gestions/add', name: 'app_add_post')]
     public function add(Request $request , CategoriesRepository $categories): Response
