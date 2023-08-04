@@ -25,8 +25,8 @@ class CategoriesController extends AbstractController
 
 
         $posts = $postsRepository->getPostsByCategories($categories, $limit, $offset);
-
-        $totalPosts = $posts["total"]; // obtenir le nombre total de posts
+        // dd(count($posts));
+        $totalPosts = count($posts); // obtenir le nombre total de posts
 
 
         $totalPages = ceil($totalPosts / $limit); // calculate total pages
