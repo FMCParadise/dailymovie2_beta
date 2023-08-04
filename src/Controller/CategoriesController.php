@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Categories;
 
 use App\Entity\Posts;
+use App\Repository;
 use App\Repository\CategoriesRepository;
 use App\Repository\PostsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CategoriesController extends AbstractController
 {
-    #[Route('/categories/{slug}/{nPage?}', name: 'app_categories' ,requirements: ["nPage" => "\d*"]) ]
+    #[Route('/categories/{slug}/{nPage?}', name: 'app_categories', requirements: ["nPage" => "\d*"]) ]
     public function index(Categories $categories, PostsRepository  $postsRepository, Request $request ): Response
     {
         $limit = 4; // post par page
@@ -28,7 +29,7 @@ class CategoriesController extends AbstractController
             'posts' => $posts,
             'nPage' => $nPage,
             'slug' => $categories-> getSlug(),
-            'pagination' => [],
+            'pagination' => ['pagination'],
 
         ]);
     }
