@@ -28,9 +28,12 @@
 							{# {{ post.content|slice(0, 255) |raw }}...</p> #}
 						</div>
 						<div class="d-flex text-capitalize px-3 justify-content-between align-items-baseline">
-							<p class="">Par :
-								{{post.getUserId().getName() }}
-								{{post.getUserId().getFirstName()}}</p>
+
+							<a class="page-link" href="{{ path('app_posts_user' , {id: post.getUserId().getId()}) }}">
+								{{ post.getUserId().getName()   }}
+								{{ post.getUserId().getFirstName() }}
+							</a>
+
 							<p class="fs-7 fw-light">
 								Créé le :
 								{{ post.getCreatedAt().format('d-m-Y') }}</p>
@@ -41,25 +44,27 @@
 			{% endfor %}
 		</div>
 	</div>
-	<div class="mt-auto">
-		<ul class="pagination pagination-lg justify-content-center">
-			{% if nPage > 1 %}
-				<li class="page-item">
-					<a class="page-link" href="{{ path('app_categories', {'nPage': nPage - 1, 'slug': slug}) }}">Précédent</a>
-				</li>
-			{% endif %}
-			{% for page in pagination %}
-				<li class="page-item {{ (nPage == page) ? 'active' : '' }}">
-					<a class="page-link" href="{{ path('app_categories', {'nPage': page, 'slug': slug}) }}">{{ page }}</a>
-				</li>
-			{% endfor %}
-			{% if pagination|length > nPage and nPage >= 1 %}
-				<li class="page-item">
-					<a class="page-link" href="{{ path('app_categories', {'nPage': nPage + 1, 'slug': slug}) }}">Suivant</a>
-				</li>
-			{% endif %}
-		</ul>
-	</div>
+	{% if posts is not empty %}
+		<div class="mt-auto">
+			<ul class="pagination pagination-lg justify-content-center">
+				{% if nPage > 1 %}
+					<li class="page-item">
+						<a class="page-link" href="{{ path('app_categories', {'nPage': nPage - 1, 'slug': slug}) }}">Précédent</a>
+					</li>
+				{% endif %}
+				{% for page in pagination %}
+					<li class="page-item {{ (nPage == page) ? 'active' : '' }}">
+						<a class="page-link" href="{{ path('app_categories', {'nPage': page, 'slug': slug}) }}">{{ page }}</a>
+					</li>
+				{% endfor %}
+				{% if pagination|length > nPage and nPage >= 1 %}
+					<li class="page-item">
+						<a class="page-link" href="{{ path('app_categories', {'nPage': nPage + 1, 'slug': slug}) }}">Suivant</a>
+					</li>
+				{% endif %}
+			</ul>
+		</div>
+	{% endif %}
 
 
 {% endblock %}
