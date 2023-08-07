@@ -52,7 +52,6 @@ class PostsController extends AbstractController
         $pagination = range(1, $totalPages);
 
 
-
         return $this->render('posts/posts.html.twig', [
             'posts' => $posts,
             'user' => $user,
@@ -71,14 +70,14 @@ class PostsController extends AbstractController
      * @return Response
      */
     #[Route('gestions/add', name: 'app_add_post')]
-
     public function add(
         Request                $request,
         PostFilesService       $postFileService,
         Security               $security,
         EntityManagerInterface $em,
         Slugger                $slugger,
-    ): Response {
+    ): Response
+    {
 
         $post = new Posts();
         $form = $this->createForm(PostsType::class, $post);
@@ -98,7 +97,7 @@ class PostsController extends AbstractController
                     // processing the image
                     $imageFile = $form->get('image')->getData();
                     //crop adn save image
-                    $filename = $postFileService->processFile($imageFile , 'POST');
+                    $filename = $postFileService->processFile($imageFile, 'POST');
                     $post->setImage($filename);
 
                     //insert in db
@@ -116,7 +115,7 @@ class PostsController extends AbstractController
         return $this->render('gestions/add.html.twig',
 
             [
-                'title'=> "Ajouter un article" ,
+                'title' => "Ajouter un article",
                 'form' => $form->createView(),
             ]
         );
@@ -142,9 +141,10 @@ class PostsController extends AbstractController
         EntityManagerInterface $em,
         Slugger                $slugger,
         string                 $slug
-    ): Response {
+    ): Response
+    {
         // If a slug is provided, load the post; otherwise, throw exception
-        $post = $postsRepository->findOneBy(['slug' => $slug]);
+        $post = $postsRepository->findBySlug($slug);
         if (!$post) {
             throw $this->createNotFoundException('The post does not exist');
         }
@@ -153,7 +153,7 @@ class PostsController extends AbstractController
 
         //check autorisation
         if (!$user || ($post->getUserId()->getId() !== $user->getId()
-            && !in_array('ROLE_ADMIN', $user->getRoles()))) {
+                && !in_array('ROLE_ADMIN', $user->getRoles()))) {
             $this->addFlash('access_denied', "Accès refusé");
             return $this->render('gestions/edit.html.twig', ['post' => []]);
         }
@@ -174,7 +174,7 @@ class PostsController extends AbstractController
 
                 if ($imageFile) {
                     //crop and save image only if a new image was uploaded
-                    $filename = $postFileService->processFile($imageFile , 'POST');
+                    $filename = $postFileService->processFile($imageFile, 'POST');
 
                     $post->setImage($filename);
                 }
@@ -197,4 +197,47 @@ class PostsController extends AbstractController
             ]
         );
     }
+
+
+    /**
+     * @param Request $request
+     * @param Security $security
+     * @param EntityManagerInterface $em
+     * @param string $slug
+     * @return Response
+     */
+    #[Route('/gestions/delete/{slug}', name: "app_delete_post")]
+    public function delete(Request                $request,
+                           PostsRepository        $postsRepository,
+                           Security               $security,
+                           EntityManagerInterface $em,
+                           string                 $slug): Response
+    {
+
+        $post = $postsRepository->findOneBySlug($slug);
+        //if article not found
+        if (!$post) {
+            $this->addFlash('failed', 'cette article n\'existe pas ');
+            return $this->redirectToRoute('app_gestions');
+        }
+
+        $user = $security->getUser();
+
+        //check autorisation
+        if (!$user || ($post->getUserId()->getId() !== $user->getId()
+                && !in_array('ROLE_ADMIN', $user->getRoles()))) {
+            $this->addFlash('denied', "Accès refusé");
+            return $this->redirectToRoute('app_gestions');
+        }
+
+        $em->remove($post);
+        $em->flush();
+
+
+        $this->addFlash('success', "Article effacée avec success");
+        return $this->redirectToRoute('app_gestions');
+
+    }
+
+
 }
