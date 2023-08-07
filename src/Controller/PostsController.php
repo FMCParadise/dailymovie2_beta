@@ -24,6 +24,11 @@ class PostsController extends AbstractController
     #[Route('/posts/{slug}', name: 'app_posts')]
     public function index(Posts $posts): Response
     {
+
+
+
+
+
         return $this->render('posts/index.html.twig', [
             'post' => $posts,
         ]);
@@ -49,9 +54,12 @@ class PostsController extends AbstractController
 
         // Générer la pagination
         $pagination = range(1, $totalPages);
+
+
+
         return $this->render('posts/posts.html.twig', [
             'posts' => $posts,
-            'nameUser' => $user->getName(),
+            'user' => $user,
             'nPage' => $nPage,
             'pagination' => $pagination,
         ]);
@@ -67,12 +75,13 @@ class PostsController extends AbstractController
      * @return Response
      */
     #[Route('gestions/add', name: 'app_add_post')]
-    public function add(Request                $request,
-                        PostFilesService       $postFileService,
-                        Security               $security,
-                        EntityManagerInterface $em,
-                        Slugger                $slugger,): Response
-    {
+    public function add(
+        Request                $request,
+        PostFilesService       $postFileService,
+        Security               $security,
+        EntityManagerInterface $em,
+        Slugger                $slugger,
+    ): Response {
 
         $post = new Posts();
         $form = $this->createForm(PostsType::class, $post);
@@ -88,29 +97,27 @@ class PostsController extends AbstractController
                 // Get the currently  user
                 $post->setUserId($security->getUser());
 
-            try {
-                // processing the image
-                $imageFile = $form->get('image')->getData();
-                //crop adn save image
-                $filename = $postFileService->processFile($imageFile);
-                $post->setImage($filename);
+                try {
+                    // processing the image
+                    $imageFile = $form->get('image')->getData();
+                    //crop adn save image
+                    $filename = $postFileService->processFile($imageFile);
+                    $post->setImage($filename);
 
                     //insert in db
                     $em->persist($post);
                     $em->flush();
                     //redirect to
                     return $this->redirectToRoute('app_gestions');
-
                 } catch (FileException $e) {
                     $form['image']->addError(new FormError($e->getMessage()));
                 }
             }
-
-
         }
 
 
-        return $this->render('gestions/add-categories.html.twig',
+        return $this->render(
+            'gestions/add-categories.html.twig',
             [
                 'form' => $form->createView(),
             ]
@@ -129,14 +136,15 @@ class PostsController extends AbstractController
      * @return Response
      */
     #[Route('/gestions/edit/{slug}', name: 'app_edit_post')]
-    public function edit(Request                $request,
-                         PostFilesService       $postFileService,
-                         PostsRepository        $postsRepository,
-                         Security               $security,
-                         EntityManagerInterface $em,
-                         Slugger                $slugger,
-                         string                 $slug): Response
-    {
+    public function edit(
+        Request                $request,
+        PostFilesService       $postFileService,
+        PostsRepository        $postsRepository,
+        Security               $security,
+        EntityManagerInterface $em,
+        Slugger                $slugger,
+        string                 $slug
+    ): Response {
         // If a slug is provided, load the post; otherwise, throw exception
         $post = $postsRepository->findOneBy(['slug' => $slug]);
         if (!$post) {
@@ -147,7 +155,7 @@ class PostsController extends AbstractController
 
         //check autorisation
         if (!$user || ($post->getUserId()->getId() !== $user->getId()
-                && !in_array('ROLE_ADMIN', $user->getRoles()))) {
+            && !in_array('ROLE_ADMIN', $user->getRoles()))) {
             $this->addFlash('access_denied', "Accès refusé");
             return $this->render('gestions/edit.html.twig', ['post' => []]);
         }
@@ -177,16 +185,16 @@ class PostsController extends AbstractController
 
                 //redirect to
                 return $this->redirectToRoute('app_gestions');
-
             } catch (FileException $e) {
                 $form['image']->addError(new FormError($e->getMessage()));
             }
         }
 
-        return $this->render('gestions/add-categories.html.twig',
+        return $this->render(
+            'gestions/add-categories.html.twig',
             [
                 'form' => $form->createView(),
-            ]);
+            ]
+        );
     }
-
 }
