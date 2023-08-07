@@ -11,7 +11,7 @@
 
 			<section>
 
-				<h2 class="h2 m-5 text-center text-uppercase fw-bold">{{nameUser}}</h2>
+				<h2 class="h2 m-5 text-center text-uppercase fw-bold">Les articles de {{user.getName}}  {{user.getFirstName}}</h2>
 
 			</section>
 			{% for post in posts %}
@@ -21,7 +21,7 @@
 							<img src="/assets/images/square/{{ asset(post.image)}}" class="d-block w-100" alt="...">
 						</a>
 						<div class="card-body">
-							<a aria-label="voirs l'article {{ post.slug }}" class="d-block card-title fst-italic text-capitalize text-decoration-none" href="/article/{{ post.id }}/{{ post.slug }}">
+							<a aria-label="voirs l'article {{ post.slug }}" class="d-block card-title fst-italic text-capitalize text-decoration-none" href="{{ path('app_posts' , { 'slug' : post.slug }) }}">
 								{{ post.title|slice(0, 25) }}...
 							</a>
 
@@ -29,9 +29,12 @@
 							{# {{ post.content|slice(0, 255) |raw }}...</p> #}
 						</div>
 						<div class="d-flex text-capitalize px-3 justify-content-between align-items-baseline">
-							<p class="">Par :
-								{{post.getUserId().getName() }}
-								{{post.getUserId().getFirstName()}}</p>
+
+							<a class="page-link" href="{{ path('app_posts_user' , {id: post.getUserId().getId()}) }}">
+								{{ post.getUserId().getName()   }}
+								{{ post.getUserId().getFirstName() }}
+							</a>
+
 							<p class="fs-7 fw-light">
 								Créé le :
 								{{ post.getCreatedAt().format('d-m-Y') }}</p>
@@ -45,17 +48,17 @@
 			<ul class="pagination pagination-lg justify-content-center">
 				{% if nPage > 1 %}
 					<li class="page-item">
-						<a class="page-link" href="{{ path('app_posts_user', {'nPage': nPage - 1, 'id': '8'}) }}">Précédent</a>
+						<a class="page-link" href="{{ path('app_posts_user', {'nPage': nPage - 1, 'id': user.getId()}) }}">Précédent</a>
 					</li>
 				{% endif %}
 				{% for page in pagination %}
 					<li class="page-item {{ (nPage == page) ? 'active' : '' }}">
-						<a class="page-link" href="{{ path('app_posts_user', {'nPage': nPage, 'id': '8' }) }}">{{ nPage }}</a>
+						<a class="page-link" href="{{ path('app_posts_user', {'nPage': nPage, 'id': user.getId() }) }}">{{ nPage }}</a>
 					</li>
 				{% endfor %}
 				{% if pagination|length > nPage and nPage >= 1 %}
 					<li class="page-item">
-						<a class="page-link" href="{{ path('app_posts_user', {'nPage': nPage + 1, 'id': '8' }) }}">Suivant</a>
+						<a class="page-link" href="{{ path('app_posts_user', {'nPage': nPage + 1, 'id': user.getId() }) }}">Suivant</a>
 					</li>
 				{% endif %}
 			</ul>
