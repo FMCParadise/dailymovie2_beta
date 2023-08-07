@@ -6,6 +6,7 @@
 parameters:
   square_images_directory: '%kernel.project_dir%/public/assets/images/square'
   full_images_directory: '%kernel.project_dir%/public/assets/images/full'
+  avatar_images_directory: '%kernel.project_dir%/public/assets/images/avatar'
 
 services:
   #slugger perso

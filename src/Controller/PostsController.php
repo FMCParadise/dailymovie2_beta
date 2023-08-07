@@ -71,6 +71,7 @@ class PostsController extends AbstractController
      * @return Response
      */
     #[Route('gestions/add', name: 'app_add_post')]
+
     public function add(
         Request                $request,
         PostFilesService       $postFileService,
@@ -112,9 +113,10 @@ class PostsController extends AbstractController
         }
 
 
-        return $this->render(
-            'gestions/add-categories.html.twig',
+        return $this->render('gestions/add.html.twig',
+
             [
+                'title'=> "Ajouter un article" ,
                 'form' => $form->createView(),
             ]
         );
@@ -186,8 +188,9 @@ class PostsController extends AbstractController
             }
         }
 
+
         return $this->render(
-            'gestions/add-categories.html.twig',
+            'gestions/add.html.twig',
             [
                 'form' => $form->createView(),
             ]

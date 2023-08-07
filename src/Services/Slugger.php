@@ -2,11 +2,13 @@
 
 namespace App\Services;
 
+use App\Repository\CategoriesRepository;
 use App\Repository\PostsRepository;
 
 class Slugger
 {
-    public function __construct(private readonly PostsRepository $postsRepository)
+    public function __construct(private readonly PostsRepository $postsRepository ,
+                                private readonly  CategoriesRepository $categoriesRepository)
     {
     }
 
@@ -42,6 +44,19 @@ class Slugger
         //check slug
         $slugSuffix = 2;
         while ($this->postsRepository->findBySlug($slug)) {
+            $slug = $slug . '-' . $slugSuffix;
+            $slugSuffix++;
+        }
+
+        return $slug;
+    }
+    public function checkSlugCategorie(string $text): string
+    {
+        $slug = $this->slugify($text);
+
+        //check slug
+        $slugSuffix = 2;
+        while ($this->categoriesRepository->findBySlug($slug)) {
             $slug = $slug . '-' . $slugSuffix;
             $slugSuffix++;
         }

@@ -49,22 +49,5 @@ class GestionsController extends AbstractController
         ]);
     }
 
-    #[Route('/gestions/edit/{slug}', name: 'app_edit_post')]
-    public function edit(Posts $posts, Security $security): Response
-    {
-        // récupérer l'utilisateur actuellement connecté
-        $user = $security->getUser();
 
-        //check autorisation
-        if (!$user || ($posts->getUserId()->getId() !== $user->getId()
-            && !in_array('ROLE_ADMIN', $user->getRoles()))) {
-            $this->addFlash('access_denied', "Accès refusé");
-            return $this->render('gestions/edit.html.twig', ['post' => []]);
-        }
-
-
-        return $this->render('gestions/edit.html.twig', [
-            'post' => $posts
-        ]);
-    }
 }

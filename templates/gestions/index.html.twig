@@ -5,7 +5,10 @@
         <div class="container-fluid bg-dark">
             <div class="container  text-md-start ">
                 <a href="/gestions/add" class="btn h6 m-3 fw-bold btn-light">Ajouter un article</a>
-                <a href="/gestions/add-categories" class="btn h6 m-3 fw-bold btn-light">Ajouter une Catégorie</a>
+                {% if('ROLE_ADMIN' in app.user.roles) %}
+                    <a href="/gestions/add-categories" class="btn h6 m-3 fw-bold btn-light">Ajouter une Catégorie</a>
+                    <a href="/gestions/delete-categories" class="btn h6 m-3 fw-bold btn-light">Supprimer une Catégorie</a>
+                {% endif %}
             </div>
         </div>
         <div class="container-fluid">
@@ -15,23 +18,30 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <article class="card mb-5  ">
                             <a href="{{ path('app_posts', {'slug': article.slug}) }}">
-                                <img src="/assets/images/square/{{ asset(article.image)}}" class="d-block w-100"
+                                <img src="/assets/images/square/{{ asset(article.image) }}" class="d-block w-100"
                                      alt="...">
                             </a>
                             <div class="card-body">
                                 <div class="my-1">
-                                    <a href="{{ path('app_edit_post', {'slug': article.slug}) }}" class="btn fw-bold btn-primary">Modifier l'article</a>
+                                    <a href="{{ path('app_edit_post', {'slug': article.slug}) }}"
+                                       class="btn fw-bold btn-primary">Modifier </a>
+                                    {% if('ROLE_ADMIN' in app.user.roles) %}
+                                        <a href="{{ path('app_edit_post', {'slug': article.slug}) }}"
+                                           class="btn fw-bold btn-primary">Supprimer</a>
+                                    {% endif %}
                                 </div>
-                                <a  aria-label="voirs l'article {{ article.slug }}" class="d-block card-title fst-italic   text-capitalizetext-decoration-none"
-                                    href="{{ path('app_posts', {'slug': article.slug}) }}">
+                                <a aria-label="voirs l'article {{ article.slug }}"
+                                   class="d-block card-title fst-italic   text-capitalizetext-decoration-none"
+                                   href="{{ path('app_posts', {'slug': article.slug}) }}">
                                     {{ article.title|slice(0, 25) }}...
                                 </a>
 
                                 <p class="card-text text-wrap fw-bold ">
-                                    {{ article.content|slice(0, 255) |raw }}...</p>
+                                    {{ article.content|slice(0, 200) |raw }}...</p>
                             </div>
                             <div class="d-flex text-capitalize px-3  justify-content-between align-items-baseline">
-                                <p class="">Par : {{article.getUserId().getName() }} {{article.getUserId().getFirstName()}}</p>
+                                <p class="">Par
+                                    : {{ article.getUserId().getName() }} {{ article.getUserId().getFirstName() }}</p>
                                 <p class=" fs-7 fw-light"> Créé le : {{ article.getCreatedAt().format('d-m-Y') }}</p>
                             </div>
                         </article>
@@ -43,7 +53,8 @@
         <div class="mt-auto">
             <ul class="pagination pagination-lg justify-content-center">
                 {% if nPage > 1 %}
-                    <li class="page-item"><a class="page-link" href="{{ path('app_gestions', {'nPage': nPage - 1}) }}">Précédent</a></li>
+                    <li class="page-item"><a class="page-link" href="{{ path('app_gestions', {'nPage': nPage - 1}) }}">Précédent</a>
+                    </li>
                 {% endif %}
                 {% for page in pagination %}
                     <li class="page-item {{ (nPage == page) ? 'active' : '' }}">
@@ -51,7 +62,8 @@
                     </li>
                 {% endfor %}
                 {% if pagination|length > nPage and nPage >= 1 %}
-                    <li class="page-item"><a class="page-link" href="{{ path('app_gestions', {'nPage': nPage + 1 }) }}">Suivant</a></li>
+                    <li class="page-item"><a class="page-link" href="{{ path('app_gestions', {'nPage': nPage + 1 }) }}">Suivant</a>
+                    </li>
                 {% endif %}
             </ul>
         </div>

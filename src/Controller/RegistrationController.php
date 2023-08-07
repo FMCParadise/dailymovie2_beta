@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Services\PostFilesService;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,6 +29,7 @@ class RegistrationController extends AbstractController
         TokenStorageInterface       $tokenStorage,
         EventDispatcherInterface    $eventDispatcher,
         SessionInterface            $session,
+        PostFilesService            $postFileService,
 
     ): Response
     {
@@ -47,6 +49,14 @@ class RegistrationController extends AbstractController
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
             try {
+
+                // processing the image
+                $imageFile = $form->get('image')->getData();
+                //crop adn save image
+                $filename = $postFileService->processFile($imageFile, "AVATAR");
+                $user->setAvatar($filename);
+
+
                 $em->persist($user);
                 $em->flush();
 
@@ -60,6 +70,7 @@ class RegistrationController extends AbstractController
                 $eventDispatcher->dispatch($event);
                 //redirect user  after login
                 return $this->redirectToRoute('_app_home');
+
             } catch (UniqueConstraintViolationException $e) {
                 $this->addFlash('error', 'Cette adresse e-mail est déjà utilisée. Veuillez en choisir une autre.');
             } catch (\Exception $e) {

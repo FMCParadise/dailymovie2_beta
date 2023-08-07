@@ -28,7 +28,6 @@
             }}) }}
     <span class="mt-3 mb-2 text-danger">{{ form_errors(registrationForm.email) }}</span>
 
-
     {{ form_widget(registrationForm.plainPassword ,
         {'label': false,
             'attr': {'class' : ' p-2 border border-3 border-secondary-subtle rounded text-center', 'placeholder': 'Mot de passe'}
@@ -42,11 +41,29 @@
         <li>Un caractère spécial parmis ( @?#"!+$*&_\-^% )</li>
     </ul>
 
+    <div class="form-input-file">
+        <div class=" mb-3">
+            <span class="mt-3 mb-2 text-danger">{{ form_errors(registrationForm.image) }}</span>
+            <label class="fw-bold my-2 ms-1 text-center" id="form-file" for="file">Choisir une image pour votre avatar</label>
+            {{ form_widget(registrationForm.image,
+                {"label": "Choisir une image pour votre avatar",
+                    "attr": {
+                    "class": "form-control",
+                    "accept" : "image/*"
+                }
+                }) }}
+        </div>
+
+    </div>
+
     <div class="form-check form-switch m-2">
-        {{ form_widget(registrationForm.rgpd, {'attr': {
+        <label class="fw-bold my-2 ms-1 text-center" id="" for="">J'accepte la collecte et le traitement des mes données</label>
+        {{ form_widget(registrationForm.rgpd, {
+            'attr': {
             'class': 'form-check-input' ~ (registrationForm.rgpd.vars.value ? ' checked' : ''),
             'id': 'flexSwitchCheckDefault',
             'value': '0'
+
         }}) }}
     </div>
     <button type="submit" class="btn btn-secondary mt-3">Envoyer</button>

@@ -45,7 +45,7 @@ class PostsType extends AbstractType
                         'maxMessage' => 'Le Titre doit comporter au maximum 5000 caractères.',
                     ]),
                     new Regex([
-                        'pattern' => '/^[a-zA-ZÀ-ÿ\s\'\-]+$/',
+                        'pattern' => '/^[a-z0-9-_A-ZÀ-ÿ\s\'\-]+$/',
                         'message' => 'Le titre contient des caractères spéciaux non autorisés.'
                     ]),
                 ],
