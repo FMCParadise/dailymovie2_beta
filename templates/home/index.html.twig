@@ -51,6 +51,7 @@
 				{% for key, article in posts|slice(3, 4) %}
 					<div class="col-lg-3 col-md-4 col-sm-6">
 						<article class="card mb-5  ">
+                        
 							<a href="/posts/{{ article.slug }}">
 								<img src="/assets/images/square/{{ asset(article.image)}}" class="d-block w-100" alt="...">
 							</a>
