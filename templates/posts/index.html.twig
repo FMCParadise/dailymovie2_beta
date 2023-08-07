@@ -26,7 +26,7 @@
 					{% if post.image is defined and post.image is not empty %}
 						<div class="image">
 							<a class="page-link " href="{{ path('app_posts_user' , {id: post.getUserId().getId}) }}">
-								<img src="/assets/images/avatar/{{asset(post.image)}}" class="rounded" width="60" alt="...">
+								<img src="/assets/images/avatar/{{asset(post.userId.avatar)}}" class="rounded" width="60" alt="...">
 							</a>
 						</div>
 					{% endif %}
@@ -36,7 +36,9 @@
 							{{ post.getUserId().getName()   }}
 							{{ post.getUserId().getFirstName() }}
 						</a>
-						Auteurs
+						<span>Auteurs</span>
+						<span class="d-block">Créé le :
+								{{ post.getCreatedAt().format('d-m-Y') }}</span>
 					</p>
 
 

@@ -98,7 +98,7 @@ class PostsController extends AbstractController
                     // processing the image
                     $imageFile = $form->get('image')->getData();
                     //crop adn save image
-                    $filename = $postFileService->processFile($imageFile);
+                    $filename = $postFileService->processFile($imageFile , 'POST');
                     $post->setImage($filename);
 
                     //insert in db
@@ -174,7 +174,8 @@ class PostsController extends AbstractController
 
                 if ($imageFile) {
                     //crop and save image only if a new image was uploaded
-                    $filename = $postFileService->processFile($imageFile);
+                    $filename = $postFileService->processFile($imageFile , 'POST');
+
                     $post->setImage($filename);
                 }
 
