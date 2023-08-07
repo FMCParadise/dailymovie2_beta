@@ -17,6 +17,26 @@
                 {% for  article in posts %}
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <article class="card mb-5  ">
+                            <div class="d-flex p-2 justify-content-left align-items-baseline">
+                                <div class="image">
+                                    {% if article.userId.avatar is defined and article.userId.avatar is not empty %}
+                                        <a class="page-link " href="{{ path('app_posts_user' , {id: article.userId.id}) }}">
+                                            <img src="/assets/images/avatar/{{asset(article.userId.avatar)}}" class="rounded" width="60" alt="...">
+                                        </a>
+                                    {% endif %}
+                                </div>
+                                <div class="d-flex text-capitalize px-3 justify-content-around align-items-baseline ">
+                                    <a class="page-link" href="{{ path('app_posts_user' , {id: article.userId.id}) }}">
+                                        {{ article.userId.name() }}
+                                        {{ article.userId.name() }}
+                                    </a>
+                                    <p class="fs-7 fw-light ">
+                                        Créé le :
+                                        {{ article.createdAt.format('d-m-Y') }}
+                                    </p>
+                                </div>
+                            </div>
+
                             <a href="{{ path('app_posts', {'slug': article.slug}) }}">
                                 <img src="/assets/images/square/{{ asset(article.image) }}" class="d-block w-100"
                                      alt="...">
@@ -39,11 +59,13 @@
                                 <p class="card-text text-wrap fw-bold ">
                                     {{ article.content|slice(0, 200) |raw }}...</p>
                             </div>
-                            <div class="d-flex text-capitalize px-3  justify-content-between align-items-baseline">
-                                <p class="">Par
-                                    : {{ article.getUserId().getName() }} {{ article.getUserId().getFirstName() }}</p>
-                                <p class=" fs-7 fw-light"> Créé le : {{ article.getCreatedAt().format('d-m-Y') }}</p>
+
+                            <div class="container mb-2">
+                                {% for cat in article.getCategoriesId() %}
+                                    <a href="/categories/{{ cat.slug }}" class="btn m-1 btn-dark">#{{ cat.name}}</a>
+                                {% endfor %}
                             </div>
+
                         </article>
                     </div>
                 {% endfor %}

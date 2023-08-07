@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4376c56f-9a8a-441e-adb2-18ffacde2de3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/67c8e73865ba8fc9cfe628501b6b34c1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/categories/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categories/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/posts/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/posts/posts.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/posts.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gestions/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestions/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +223,7 @@
       <workItem from="1690894012885" duration="15317000" />
       <workItem from="1691150013704" duration="9559000" />
       <workItem from="1691390940573" duration="10404000" />
-      <workItem from="1691403455128" duration="6314000" />
+      <workItem from="1691403455128" duration="7689000" />
     </task>
     <servers />
   </component>
