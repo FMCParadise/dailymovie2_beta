@@ -42,20 +42,20 @@
 									{{ post.getUserId().getName() }}
 									{{ post.getUserId().getFirstName() }}
 								</a>
-
-								<p class="fs-7 fw-light ">
+								<p class="fs-7 px-4 fw-light">
 									Créé le :
 									{{ post.getCreatedAt().format('d-m-Y') }}
 								</p>
+
 							</div>
-							
+
 						</div>
 
 						<div class="container">
-								{% for cat in post.getCategoriesId() %}
-									<a href="/categories/{{ cat.slug }}" class="btn m-1 btn-dark">#{{ cat.name}}</a>
-								{% endfor %}
-							</div>
+							{% for cat in post.getCategoriesId() %}
+								<a href="/categories/{{ cat.slug }}" class="btn m-1 btn-dark">#{{ cat.name}}</a>
+							{% endfor %}
+						</div>
 
 					</article>
 				</div>
@@ -82,7 +82,9 @@
 					</li>
 				{% endif %}
 			</ul>
+			
 		</div>
+
 	{% endif %}
 
 
