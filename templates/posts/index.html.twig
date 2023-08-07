@@ -10,19 +10,7 @@
 					{% if post.image is defined and post.image is not empty %}
 						<img src="/assets/images/full/{{ post.image }}" class="xl-50 me-3 mb-3 rounded img-fluid" alt="...">
 					{% endif %}
-					<h1>Auteurs</h1>
-					<p>
-						{# <a href=""> {{post->getUser()->getName }}</a> #}
-						<a class="page-link" href="{{ path('app_posts_user' , {id: post.getUserId().getId}) }}">
-							{{ post.getUserId().getName()   }}
-							{{ post.getUserId().getFirstName() }}
-						</a>
 
-					</p>
-					{% if post.image is defined and post.image is not empty %}
-						<a href="">
-							<img src="public/assets/images/square/catyhjrgcg.jpg" class="" alt="..."></a>
-					{% endif %}
 					<p>{{ post.content |raw }}</p>
 				</div>
 			</div>
@@ -31,6 +19,29 @@
 			{% for cat in post.getCategoriesId() %}
 				<a href="/categories/{{ cat.slug }}" class="btn m-1 btn-dark">#{{ cat.name}}</a>
 			{% endfor %}
+		</div>
+		<div class="container mt-2 d-flex justify-content-left">
+			<div class="card p-3">
+				<div class="d-flex align-items-center gap-3">
+					{% if post.image is defined and post.image is not empty %}
+						<div class="image">
+							<a class="page-link " href="{{ path('app_posts_user' , {id: post.getUserId().getId}) }}">
+								<img src="/assets/images/avatar/{{asset(post.image)}}" class="rounded" width="60" alt="...">
+							</a>
+						</div>
+					{% endif %}
+					<p>
+
+						<a class="page-link " href="{{ path('app_posts_user' , {id: post.getUserId().getId}) }}">
+							{{ post.getUserId().getName()   }}
+							{{ post.getUserId().getFirstName() }}
+						</a>
+						Auteurs
+					</p>
+
+
+				</div>
+			</div>
 		</div>
 	</section>
 
