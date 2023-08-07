@@ -6,12 +6,17 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class RegistrationFormType extends AbstractType
@@ -67,6 +72,22 @@ class RegistrationFormType extends AbstractType
                 ],
 
             ])
+            ->add('image', FileType::class, [
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new NotBlank(null, "Une affiche est obligatoire"),
+                    new File([
+                        'maxSize' => '25M',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg',
+                            'image/jpg',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez télécharger une image valide (PNG ou JPG).',
+                    ])
+                ],
+            ])
             ->add('rgpd', CheckboxType::class, [
                 'label' => 'J\'accepte la collecte et le traitement de mes données',
                 'required' => true,
@@ -76,7 +97,33 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
 
+            ])
+
+            ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
+            $user = $event->getData();
+            $form = $event->getForm();
+            $isEdit = $user && $user->getId() !== null;
+            $constraints = [];
+            if (!$isEdit) {
+                $constraints[] = new NotBlank(null, "Une image  est obligatoire");
+            }
+
+            $constraints[] = new File([
+                'maxSize' => '25M',
+                'mimeTypes' => [
+                    'image/png',
+                    'image/jpeg',
+                    'image/jpg',
+                ],
+                'mimeTypesMessage' => 'Veuillez télécharger une image valide (PNG ou JPG).',
             ]);
+
+            $form->add('image', FileType::class, [
+                'mapped' => false,
+                'required' => !$isEdit,
+                'constraints' => $constraints,
+            ]);
+        });
 
     }
 

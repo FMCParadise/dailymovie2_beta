@@ -9,12 +9,12 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Count;
 
-class DeleteCategorieType extends AbstractType
+class DeleteCategoriesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('id', EntityType::class, [
+            ->add('name', EntityType::class, [
                 'class' => Categories::class,
                 'choice_label' => "name",
                 "expanded" => true,
@@ -31,7 +31,6 @@ class DeleteCategorieType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Categories::class,
         ]);
     }
 }

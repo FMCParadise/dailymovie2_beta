@@ -71,7 +71,7 @@ class PostsController extends AbstractController
                         PostFilesService       $postFileService,
                         Security               $security,
                         EntityManagerInterface $em,
-                        Slugger                $slugger,): Response
+                        Slugger                $slugger): Response
     {
 
         $post = new Posts();
@@ -110,8 +110,9 @@ class PostsController extends AbstractController
         }
 
 
-        return $this->render('gestions/add-categories.html.twig',
+        return $this->render('gestions/add.html.twig',
             [
+                'title'=> "Ajouter un article" ,
                 'form' => $form->createView(),
             ]
         );
@@ -183,7 +184,7 @@ class PostsController extends AbstractController
             }
         }
 
-        return $this->render('gestions/add-categories.html.twig',
+        return $this->render('gestions/add.html.twig',
             [
                 'form' => $form->createView(),
             ]);

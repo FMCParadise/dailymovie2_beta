@@ -5,13 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4376c56f-9a8a-441e-adb2-18ffacde2de3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/images/full/08245bdbcab8ddc200a7a1639d6bbc55.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/square/08245bdbcab8ddc200a7a1639d6bbc55.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/dbed282ca8515ce5c32ec3d9c5808f7a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/4766a53e3076dd767006a4cbc43d3a54.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/4766a53e3076dd767006a4cbc43d3a54.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/DeleteCategoriesType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/gestions/delete-categories.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategoriesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GestionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GestionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CategoriesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CategoriesRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PostsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PostsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/categories/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categories/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CategoriesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CategoriesType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PostsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PostsType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/PostFilesService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/PostFilesService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Slugger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Slugger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gestions/add-categories.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestions/add-categories.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gestions/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestions/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,13 +190,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "C:/laragon/www/daily-movies",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "last_opened_file_path": "C:/laragon/www/dailymovies2_beta/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "Symfony2.SettingsForm",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -221,7 +238,9 @@
       <workItem from="1689683183826" duration="30916000" />
       <workItem from="1690050181114" duration="48206000" />
       <workItem from="1690894012885" duration="15317000" />
-      <workItem from="1691150013704" duration="8707000" />
+      <workItem from="1691150013704" duration="9559000" />
+      <workItem from="1691390940573" duration="10404000" />
+      <workItem from="1691403455128" duration="5608000" />
     </task>
     <servers />
   </component>

@@ -10,6 +10,7 @@ class PostFilesService
 {
     private string $squareImagesDirectory;
     private string $fullImagesDirectory;
+    private string $avatarImagesDirectory;
 
     private ParameterBagInterface $params;
 
@@ -22,6 +23,7 @@ class PostFilesService
         $this->params = $params;
         $this->squareImagesDirectory = $this->params->get('square_images_directory');
         $this->fullImagesDirectory = $this->params->get('full_images_directory');
+        $this->avatarImagesDirectory = $this->params->get('avatar_images_directory');
     }
 
     /**
@@ -30,24 +32,35 @@ class PostFilesService
      * @return string
      * @throws FileException
      */
-    public function processFile(UploadedFile $file): string
+    public function processFile(UploadedFile $file , string $type = "POST" | "AVATAR"): string
     {
-        $this->checkImageSize($file, 1200, 600);
+        if($type === "POST"){
+            $this->checkImageSize($file, 1200, 600);
 
-        $filename = $this->generateFilename($file);
+            $filename = $this->generateFilename($file);
 
-        try {
-            $this->generateAndSaveImage($file, $filename, $this->squareImagesDirectory,);
+            try {
+                $this->generateAndSaveImage($file, $filename, $this->squareImagesDirectory,);
 
-            $this->generateAndSaveImage($file, $filename, $this->fullImagesDirectory, 'FULL');
+                $this->generateAndSaveImage($file, $filename, $this->fullImagesDirectory, 'FULL');
 
-            return $filename;
+                return $filename;
 
-        } catch (FileException $e) {
-            throw new FileException("Une erreur est survenue lors du traitement de votre image");
+            } catch (FileException $e) {
+                throw new FileException("Une erreur est survenue lors du traitement de votre image");
+            }
         }
 
-
+        if($type === "AVATAR"){
+            $this->checkImageSize($file, 200, 200);
+            $filename = $this->generateFilename($file);
+            try {
+                $this->generateAndSaveImage($file, $filename, $this->avatarImagesDirectory, 'SQUARE');
+                return $filename;
+            } catch (FileException $e) {
+                throw new FileException("Une erreur est survenue lors du traitement de votre image");
+            }
+        }
     }
 
     private function checkImageSize(UploadedFile $file, int $minWidth, int $minHeight): void

@@ -42,18 +42,6 @@ class CategoriesType extends AbstractType
                         'maxMessage' => 'Le slug doit comporter au maximum 100 caractères.',
                     ]),
                 ],
-            ])
-            ->add('id', EntityType::class, [
-                'class' => Categories::class,
-                'choice_label' => "name",
-                "expanded" => true,
-                "multiple" => true,
-                'constraints' => [
-                    new Count([
-                        'min' => 1,
-                        'minMessage' => 'Vous devez sélectionner au moins une catégorie.',
-                    ]),
-                ],
             ]);
     }
 
