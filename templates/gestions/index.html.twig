@@ -2,17 +2,29 @@
 
 {% block body %}
     <section>
+
         <div class="container-fluid bg-dark">
             <div class="container  text-md-start ">
                 <a href="/gestions/add" class="btn h6 m-3 fw-bold btn-light">Ajouter un article</a>
                 {% if('ROLE_ADMIN' in app.user.roles) %}
                     <a href="/gestions/add-categories" class="btn h6 m-3 fw-bold btn-light">Ajouter une Catégorie</a>
-                    <a href="/gestions/delete-categories" class="btn h6 m-3 fw-bold btn-light">Supprimer une Catégorie</a>
+                    <a href="/gestions/delete-categories" class="btn h6 m-3 fw-bold btn-light">Supprimer une
+                        Catégorie</a>
                 {% endif %}
             </div>
         </div>
         <div class="container-fluid">
             <h2 class="h2 m-5 text-center text-uppercase fw-bold">{{ title }}</h2>
+            {% for message in app.flashes('success') %}
+                <div style="max-width:300px " class="alert  m-auto my-5 alert-success text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('failed') %}
+                <div style="max-width:300px " class="alert  m-auto my-5 alert-danger text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
             <div class="row gx-3">
                 {% for  article in posts %}
                     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -20,8 +32,10 @@
                             <div class="d-flex p-2 justify-content-left align-items-baseline">
                                 <div class="image">
                                     {% if article.userId.avatar is defined and article.userId.avatar is not empty %}
-                                        <a class="page-link " href="{{ path('app_posts_user' , {id: article.userId.id}) }}">
-                                            <img src="/assets/images/avatar/{{asset(article.userId.avatar)}}" class="rounded" width="60" alt="...">
+                                        <a class="page-link "
+                                           href="{{ path('app_posts_user' , {id: article.userId.id}) }}">
+                                            <img src="/assets/images/avatar/{{ asset(article.userId.avatar) }}"
+                                                 class="rounded" width="60" alt="...">
                                         </a>
                                     {% endif %}
                                 </div>
@@ -45,9 +59,9 @@
                                 <div class="my-1">
                                     <a href="{{ path('app_edit_post', {'slug': article.slug}) }}"
                                        class="btn fw-bold btn-primary">Modifier </a>
-                                    {% if('ROLE_ADMIN' in app.user.roles) %}
-                                        <a href="{{ path('app_edit_post', {'slug': article.slug}) }}"
-                                           class="btn fw-bold btn-primary">Supprimer</a>
+                                    {% if('ROLE_ADMIN' in app.user.roles or app.user.id == article.userId.id) %}
+                                        <a href="{{ path('app_delete_post', {'slug': article.slug}) }}"
+                                           class="btn fw-bold btn-danger btn-delete">Supprimer</a>
                                     {% endif %}
                                 </div>
                                 <a aria-label="voirs l'article {{ article.slug }}"
@@ -62,7 +76,7 @@
 
                             <div class="container mb-2">
                                 {% for cat in article.getCategoriesId() %}
-                                    <a href="/categories/{{ cat.slug }}" class="btn m-1 btn-dark">#{{ cat.name}}</a>
+                                    <a href="/categories/{{ cat.slug }}" class="btn m-1 btn-dark">#{{ cat.name }}</a>
                                 {% endfor %}
                             </div>
 
@@ -91,4 +105,23 @@
         </div>
 
     </section>
+
+    <script type="text/javascript">
+        let $btnDelete = document.querySelectorAll('.btn-delete');
+        $btnDelete.forEach(($e) => {
+            $e.addEventListener('click', function (event) {
+                event.preventDefault();
+                let confirmation = confirm('Êtes-vous sûr de vouloir supprimer cet article ?');
+                if (confirmation) {
+                    window.location.href = this.getAttribute('href');
+                }
+            });
+        });
+
+    </script>
+
+
+
+
+
 {% endblock %}
