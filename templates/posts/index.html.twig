@@ -3,6 +3,11 @@
 {% block body %}
 
 	<section class="mb-5">
+
+		{% if post|length == 0 %}
+			<h2 class="h2 m-5 text-center text-danger text-uppercase fw-bold">Article non trouver</h2>
+		{% endif %}
+		{% if post|length > 0 %}
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -45,6 +50,7 @@
 				</div>
 			</div>
 		</div>
+		{% endif %}
 	</section>
 
 {% endblock %}

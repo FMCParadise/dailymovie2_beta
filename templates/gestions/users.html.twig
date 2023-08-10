@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section>
+
+        <div class="container-fluid bg-dark">
+            <div class="container  text-md-start ">
+                <a href="/gestions/add-user" class="btn h6 m-3 fw-bold btn-light">Ajouter un Auteur</a>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="h2 m-5 text-center text-uppercase fw-bold">{{ title }}</h2>
+            {% for message in app.flashes('success') %}
+                <div style="max-width:300px " class="alert  m-auto my-5 alert-success text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('failed') %}
+                <div style="max-width:300px " class="alert  m-auto my-5 alert-danger text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <div class="row gx-3">
+                {% for  user in users %}
+                    <div class="d-flex p-2 justify-content-left align-items-center">
+                        <div class="image">
+                            {% if user.avatar is defined and user.avatar is not empty %}
+                                <a class="page-link "
+                                   href="{{ path('app_posts_user' , {id: user.id}) }}">
+                                    <img src="/assets/images/avatar/{{ asset(user.avatar) }}"
+                                         class="rounded" width="200" alt="...">
+                                </a>
+                            {% endif %}
+                        </div>
+                        <div class=" ps-2 ">
+                            <div class="d-flex   align-items-baseline ">
+                                <span class="pe-3 fw-bold">id: {{ user.id}}</span>
+                            </div>
+                            <div class="d-flex   align-items-baseline ">
+                                role(s):
+                                {% for  role in user.roles %}
+                                    <span class="pe-3 fw-bold"> {{ role }},</span>
+                                {% endfor %}
+                            </div>
+                            <div class="d-flex text-capitalize   align-items-baseline">
+                                <a class="page-link" href="{{ path('app_posts_user' , {id: user.id}) }}">
+                                    {{ 'Nom & Prénom: ' ~ user.name }}
+                                    {{ user.firstName }}
+                                </a>
+                            </div>
+                            <p class="fs-7 m-0 fw-light ">
+                                Créé le : {{ user.createdAt.format('d-m-Y') }}
+                            </p>
+                            <p class="fs-7 m-0 p-0  fw-light ">
+                                Nombre d'article:  <span class="fw-bold">{{user.posts.count}}</span>
+                            </p>
+                            <div>
+                                <a href="{{ path('app_gestions_edit_user' , {id:user.id}) }}" title="modifier cet utilisateur" style="font-size: 25px ; color: blue"
+                                   class="btn  fw-bold "><i class="bi bi-pencil-square"></i></a>
+                                <a href="{{ path('app_gestions_delete_user' , {id:user.id}) }}" title="Supprimer cet utilisateur" style="font-size: 25px ; color:red"
+                                   class="btn fw-bold text-danger btn-delete "><i class="bi bi-person-fill-x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </section>
+
+    <script type="text/javascript">
+        let $btnDelete = document.querySelectorAll('.btn-delete');
+        $btnDelete.forEach(($e) => {
+            $e.addEventListener('click', function (event) {
+                event.preventDefault();
+                let confirmation = confirm('Êtes-vous sûr de vouloir supprimer cet article ?');
+                if (confirmation) {
+                    window.location.href = this.getAttribute('href');
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+{% endblock %}

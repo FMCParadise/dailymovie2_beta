@@ -22,11 +22,14 @@ use App\Entity\User;
 class PostsController extends AbstractController
 {
     #[Route('/posts/{slug}', name: 'app_posts')]
-    public function index(Posts $posts): Response
+    public function index(PostsRepository $postsRepository , Request $request): Response
     {
 
+        $post = $postsRepository->findOneBySlug($request->get('slug')) ;
+
+
         return $this->render('posts/index.html.twig', [
-            'post' => $posts,
+            'post' => $post,
         ]);
     }
 
@@ -34,6 +37,7 @@ class PostsController extends AbstractController
     #[Route("/posts/user/{id}", name: 'app_posts_user')]
     public function postsByUser(User $user, PostsRepository $postsRepository, Request $request): Response
     {
+
 
         //$posts = $postsRepository->findByUser($userId);
         $limit = 8; // post par page
@@ -144,7 +148,7 @@ class PostsController extends AbstractController
     ): Response
     {
         // If a slug is provided, load the post; otherwise, throw exception
-        $post = $postsRepository->findBySlug($slug);
+        $post = $postsRepository->findOneBySlug($slug);
         if (!$post) {
             throw $this->createNotFoundException('The post does not exist');
         }

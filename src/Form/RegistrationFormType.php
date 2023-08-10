@@ -3,6 +3,10 @@
 namespace App\Form;
 
 use App\Entity\User;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -19,8 +23,15 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
 
+
 class RegistrationFormType extends AbstractType
 {
+
+    public function __construct(private Security $security, private ParameterBagInterface $params)
+    {
+
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('name', null, [
@@ -60,6 +71,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('plainPassword', PasswordType::class, [
                 'mapped' => false,
+                'required' => !$options['edit'],
                 'constraints' => [
                     new Length([
                         'min' => 16,
@@ -88,7 +100,34 @@ class RegistrationFormType extends AbstractType
                     ])
                 ],
             ])
-            ->add('rgpd', CheckboxType::class, [
+            ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+                $user = $event->getData();
+                $form = $event->getForm();
+                $isEdit = $user && $user->getId() !== null;
+                $constraints = [];
+                if (!$isEdit) {
+                    $constraints[] = new NotBlank(null, "Une image  est obligatoire");
+                }
+
+                $constraints[] = new File([
+                    'maxSize' => '25M',
+                    'mimeTypes' => [
+                        'image/png',
+                        'image/jpeg',
+                        'image/jpg',
+                    ],
+                    'mimeTypesMessage' => 'Veuillez télécharger une image valide (PNG ou JPG).',
+                ]);
+
+                $form->add('image', FileType::class, [
+                    'mapped' => false,
+                    'required' => !$isEdit,
+                    'constraints' => $constraints,
+                ]);
+            });
+
+        if (!isset($options['edit']) || !$options['edit']) {
+            $builder->add('rgpd', CheckboxType::class, [
                 'label' => 'J\'accepte la collecte et le traitement de mes données',
                 'required' => true,
                 'constraints' => [
@@ -96,41 +135,37 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Vous devez accepter les conditions.',
                     ]),
                 ],
-
-            ])
-
-            ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
-            $user = $event->getData();
-            $form = $event->getForm();
-            $isEdit = $user && $user->getId() !== null;
-            $constraints = [];
-            if (!$isEdit) {
-                $constraints[] = new NotBlank(null, "Une image  est obligatoire");
-            }
-
-            $constraints[] = new File([
-                'maxSize' => '25M',
-                'mimeTypes' => [
-                    'image/png',
-                    'image/jpeg',
-                    'image/jpg',
-                ],
-                'mimeTypesMessage' => 'Veuillez télécharger une image valide (PNG ou JPG).',
             ]);
 
-            $form->add('image', FileType::class, [
+        }
+
+        $user = $this->security;
+        if ($user->getUser() && in_array('ROLE_ADMIN', $user->getUser()->getRoles())) {
+
+            $defaultRoleValue = $options["defaultRole"] ?? null ;
+
+            $builder->add('roles', ChoiceType::class, [
+                'choices' => $this->params->get('roles_app'),
+                'expanded' => true,
+                'multiple' => false,
                 'mapped' => false,
-                'required' => !$isEdit,
-                'constraints' => $constraints,
+                'required' => true,
+                'label' => 'Rôles',
+                'attr' => [
+                    'class' => 'form-check-inline',
+                ],
+                'data' =>$defaultRoleValue
             ]);
-        });
 
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'edit' => false,
+            'defaultRole' => 'ROLE_AUTHOR'
         ]);
     }
 }

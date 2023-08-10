@@ -6,65 +6,77 @@
 {% block body %}
 
 
-	<div class="container-fluid">
-		<div class="row gx-3">
+    <div class="container-fluid">
 
-			<section>
+        {% if posts|length == 0 %}
+            <h2 class="h2 m-5 text-center text-uppercase fw-bold">Aucun article disponible pour {{ user.name }}</h2>
+        {% endif %}
+        {% if posts|length > 0 %}
+            <div class="row gx-3">
+                <section>
+                    <h2 class="h2 m-5 text-center text-uppercase fw-bold">Les articles
+                        de {{ user.getName }}  {{ user.getFirstName }}</h2>
+                </section>
+                {% for post in posts %}
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <article class="card mb-5">
+                            <a href="/posts/{{ post.slug }}">
+                                <img src="/assets/images/square/{{ asset(post.image) }}" class="d-block w-100"
+                                     alt="...">
+                            </a>
+                            <div class="card-body">
+                                <a aria-label="voirs l'article {{ post.slug }}"
+                                   class="d-block card-title fst-italic text-capitalize text-decoration-none"
+                                   href="{{ path('app_posts' , { 'slug' : post.slug }) }}">
+                                    {{ post.title|slice(0, 25) }}...
+                                </a>
 
-				<h2 class="h2 m-5 text-center text-uppercase fw-bold">Les articles de {{user.getName}}  {{user.getFirstName}}</h2>
+                                {# <p class="card-text text-wrap fw-bold "> #}
+                                {# {{ post.content|slice(0, 255) |raw }}...</p> #}
+                            </div>
+                            <div class="d-flex text-capitalize px-3 justify-content-between align-items-baseline">
 
-			</section>
-			{% for post in posts %}
-				<div class="col-lg-3 col-md-4 col-sm-6">
-					<article class="card mb-5">
-						<a href="/posts/{{ post.slug }}">
-							<img src="/assets/images/square/{{ asset(post.image)}}" class="d-block w-100" alt="...">
-						</a>
-						<div class="card-body">
-							<a aria-label="voirs l'article {{ post.slug }}" class="d-block card-title fst-italic text-capitalize text-decoration-none" href="{{ path('app_posts' , { 'slug' : post.slug }) }}">
-								{{ post.title|slice(0, 25) }}...
-							</a>
+                                <a class="page-link"
+                                   href="{{ path('app_posts_user' , {id: post.getUserId().getId()}) }}">
+                                    {{ post.getUserId().getName() }}
+                                    {{ post.getUserId().getFirstName() }}
+                                </a>
 
-							{# <p class="card-text text-wrap fw-bold "> #}
-							{# {{ post.content|slice(0, 255) |raw }}...</p> #}
-						</div>
-						<div class="d-flex text-capitalize px-3 justify-content-between align-items-baseline">
+                                <p class="fs-7 px-4 fw-light">
+                                    Créé le :
+                                    {{ post.getCreatedAt().format('d-m-Y') }}
+                                </p>
+                            </div>
+                        </article>
 
-							<a class="page-link" href="{{ path('app_posts_user' , {id: post.getUserId().getId()}) }}">
-								{{ post.getUserId().getName()  }}
-								{{ post.getUserId().getFirstName() }}
-							</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="mt-auto">
+                <ul class="pagination pagination-lg justify-content-center">
+                    {% if nPage > 1 %}
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="{{ path('app_posts_user', {'nPage': nPage - 1, 'id': user.getId()}) }}">Précédent</a>
+                        </li>
+                    {% endif %}
+                    {% for page in pagination %}
+                        <li class="page-item {{ (nPage == page) ? 'active' : '' }}">
+                            <a class="page-link"
+                               href="{{ path('app_posts_user', {'nPage': nPage, 'id': user.getId() }) }}">{{ nPage }}</a>
+                        </li>
+                    {% endfor %}
+                    {% if pagination|length > nPage and nPage >= 1 %}
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="{{ path('app_posts_user', {'nPage': nPage + 1, 'id': user.getId() }) }}">Suivant</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endif %}
 
-							<p class="fs-7 px-4 fw-light">
-								Créé le :
-								{{ post.getCreatedAt().format('d-m-Y') }}
-							</p>
-						</div>
-					</article>
-
-				</div>
-			{% endfor %}
-		</div>
-		<div class="mt-auto">
-			<ul class="pagination pagination-lg justify-content-center">
-				{% if nPage > 1 %}
-					<li class="page-item">
-						<a class="page-link" href="{{ path('app_posts_user', {'nPage': nPage - 1, 'id': user.getId()}) }}">Précédent</a>
-					</li>
-				{% endif %}
-				{% for page in pagination %}
-					<li class="page-item {{ (nPage == page) ? 'active' : '' }}">
-						<a class="page-link" href="{{ path('app_posts_user', {'nPage': nPage, 'id': user.getId() }) }}">{{ nPage }}</a>
-					</li>
-				{% endfor %}
-				{% if pagination|length > nPage and nPage >= 1 %}
-					<li class="page-item">
-						<a class="page-link" href="{{ path('app_posts_user', {'nPage': nPage + 1, 'id': user.getId() }) }}">Suivant</a>
-					</li>
-				{% endif %}
-			</ul>
-		</div>
-	</div>
+    </div>
 
 
 {% endblock %}
