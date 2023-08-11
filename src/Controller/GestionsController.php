@@ -97,10 +97,21 @@ class GestionsController extends AbstractController
         UserPasswordHasherInterface $userPasswordHasher,
         EntityManagerInterface      $em,
         PostFilesService            $postFileService,
-        ParameterBagInterface       $params
+        ParameterBagInterface       $params,
+        Security $security
 
     ): Response
     {
+
+
+        $userAdmin = $security->getUser();
+
+        //check autorisation
+        if (!$userAdmin || !in_array('ROLE_ADMIN', $userAdmin->getRoles())) {
+            $this->addFlash('denied', "Accès refusé");
+            return $this->redirectToRoute('app_gestions');
+        }
+
 
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -163,9 +174,23 @@ class GestionsController extends AbstractController
         UserPasswordHasherInterface $userPasswordHasher,
         EntityManagerInterface      $em,
         PostFilesService            $postFileService,
-        ParameterBagInterface       $params
+        ParameterBagInterface       $params,
+        Security $security
     ): Response
     {
+
+
+
+        $userAdmin = $security->getUser();
+
+        //check autorisation
+        if (!$userAdmin || !in_array('ROLE_ADMIN', $userAdmin->getRoles())) {
+            $this->addFlash('denied', "Accès refusé");
+            return $this->redirectToRoute('app_gestions');
+        }
+
+
+
 
         $defaultRoles = $user->getRoles();
         $defaultRoleValue = null;
@@ -249,11 +274,7 @@ class GestionsController extends AbstractController
 
     ): Response
     {
-        //if article not found
-        if (!$user) {
-            $this->addFlash('failed', 'cet Utilisateur n\'existe pas ');
-            return $this->redirectToRoute('app_gestions');
-        }
+
 
         $CurrentuUser = $security->getUser();
 
@@ -261,6 +282,13 @@ class GestionsController extends AbstractController
         if (!$CurrentuUser && !in_array('ROLE_ADMIN', $CurrentuUser->getRoles())) {
             $this->addFlash('failed', "Accès refusé");
             return $this->redirectToRoute('app_gestions_user');
+        }
+
+
+        //if article not found
+        if (!$user) {
+            $this->addFlash('failed', 'cet Utilisateur n\'existe pas ');
+            return $this->redirectToRoute('app_gestions');
         }
 
         //check if user had posts

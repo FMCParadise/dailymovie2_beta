@@ -5,18 +5,109 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4376c56f-9a8a-441e-adb2-18ffacde2de3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/gestions/users.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/313ae47c261af94dbd3103f3c81ea229.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/582ca07ce56f7aaa948cb212b0658f75.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/fb7691d9cff82530e704395d5d968535.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d5fdad8300d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d5fdae99958.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d5fdaf8b49f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d5fdb0b6fbe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d5fdb1e63e0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d5fdb388274.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/page-403.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/page-404.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d5fdad8300d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d5fdae99958.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d5fdaf8b49f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d5fdb0b6fbe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d5fdb1e63e0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d5fdb388274.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/CategoriesFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/PostsFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error403.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/avatar/399d85b39a14f06b0e80131eafaa51fa.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/avatar/4e65ce77176c1b6da718640cf6c4ea5a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/avatar/68923f040b33fefffb1445088ad8b479.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/avatar/6a381c32ae611dbeb42c7500f4402d69.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/avatar/8d4e43905959feb5bfc6d6ee3e19e9b9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/avatar/ecca58daf0f9a4e70e48ca3bcdb1e5b1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/avatar/fec3a5f84ed57813dd2d063a780fbf5e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/08245bdbcab8ddc200a7a1639d6bbc55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/177122ba606b28a7708863c6f6c2ec50.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/1a2084b66e95840a5e8b6d4a72e11afb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/2aa2996c0669936f6ab3cb786356a311.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/2b90e30e189c2997e723efac6637959c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/31607430245fb7e27bc1d2f43e96f66c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/33abacd5ad7964a8d659da970f32007c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/3c2593aab96c3b0790ea03fdf6b8f6e6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/4766a53e3076dd767006a4cbc43d3a54.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/48cd1b86be367cca65f2725d01a517a2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/4f966bc5d2e66d0c4191213a7e217afc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/53e2993fe253a21adbcc6c3517f0bebf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/5709d519e9409956c573b840ed5c094e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/5983632.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/5983633.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/5983634.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/5983635.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/5983636.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/67c8e73865ba8fc9cfe628501b6b34c1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/6ae383f5bb719773fc89eb7e746d5148.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/83d150be1cecc45b684b14154fa0e095.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/940d87b3f906075a210d20beed5fbc63.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/94c8418f98d8fbdde2de5a1f9589fc1c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/96ec561d06e9f2877bf1a00167699bb4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/98b14f19d1add65ab5c79a1468cd856d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/ae6159e81e93bf9f32586fb317002ea6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/af0104a7f0513305ee96312dfc8c03e6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/b46f9ae0479c049ffa35dfc5702ec7c5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/c6f66290e6a1039dee2a2a37d4d91f5b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/ca385f0df5a60cea7349b4179b1c6341.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/ce81b43972bb97c5e35e9bca993f03df.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/cf1906db5d0dee34ad0435cbe237640c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/d2b3bd3c4d906bd5cc321b3c001a9c38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/d3e4a116588257ad690498417a698158.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/full/ff6c7d59572bec791bcb29a597135ce3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/08245bdbcab8ddc200a7a1639d6bbc55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/177122ba606b28a7708863c6f6c2ec50.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/1a2084b66e95840a5e8b6d4a72e11afb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/2aa2996c0669936f6ab3cb786356a311.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/2b90e30e189c2997e723efac6637959c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/31607430245fb7e27bc1d2f43e96f66c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/3c2593aab96c3b0790ea03fdf6b8f6e6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/4766a53e3076dd767006a4cbc43d3a54.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/48cd1b86be367cca65f2725d01a517a2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/4f966bc5d2e66d0c4191213a7e217afc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/53e2993fe253a21adbcc6c3517f0bebf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/5709d519e9409956c573b840ed5c094e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/5983632.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/5983633.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/5983634.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/5983635.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/5983636.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/67c8e73865ba8fc9cfe628501b6b34c1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/6ae383f5bb719773fc89eb7e746d5148.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/83d150be1cecc45b684b14154fa0e095.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/940d87b3f906075a210d20beed5fbc63.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/94c8418f98d8fbdde2de5a1f9589fc1c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/96ec561d06e9f2877bf1a00167699bb4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/98b14f19d1add65ab5c79a1468cd856d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/ae6159e81e93bf9f32586fb317002ea6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/af0104a7f0513305ee96312dfc8c03e6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/b46f9ae0479c049ffa35dfc5702ec7c5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/c6f66290e6a1039dee2a2a37d4d91f5b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/ca385f0df5a60cea7349b4179b1c6341.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/ce81b43972bb97c5e35e9bca993f03df.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/cf1906db5d0dee34ad0435cbe237640c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/d2b3bd3c4d906bd5cc321b3c001a9c38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/d3e4a116588257ad690498417a698158.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/square/img.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GestionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GestionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gestions/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestions/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UsersFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UsersFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/posts/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/posts/posts.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/posts.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +255,9 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
     </include_path>
   </component>
   <component name="ProjectId" id="2SUGfGs4eHyTw1L5RMbLq7Q28Bs" />
@@ -209,6 +303,7 @@
       <recent name="C:\laragon\www\dailymovies2_beta" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\dailymovies2_beta\public\assets\images" />
       <recent name="C:\laragon\www\dailymovies2_beta\templates\gestions" />
       <recent name="C:\laragon\www\dailymovies2_beta\templates\includes" />
     </key>
@@ -233,7 +328,7 @@
       <workItem from="1690894012885" duration="15317000" />
       <workItem from="1691150013704" duration="9559000" />
       <workItem from="1691390940573" duration="10404000" />
-      <workItem from="1691403455128" duration="35137000" />
+      <workItem from="1691403455128" duration="43653000" />
     </task>
     <servers />
   </component>
