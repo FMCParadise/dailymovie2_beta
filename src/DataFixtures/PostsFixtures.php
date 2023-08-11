@@ -60,8 +60,8 @@ class PostsFixtures extends Fixture implements DependentFixtureInterface
                 $post = new Posts();
                 $post->setUserId($user);
                 $post->setContent($faker->text(1000));
-                $post->setSlug(Slugger::slugify("titre du film") . '-' . $faker->randomNumber(4));
-                $post->setTitle('titre du film');
+                $post->setSlug(Slugger::slugify("slug du film-id-generate") . '-' . $faker->randomNumber(6));
+                $post->setTitle('slug du film-generate'.'-'. $faker->randomNumber(6));
                 $randomCategories = $faker->randomElements($categories, mt_rand(1, 9));
 
                 // Générer un nom unique pour l'image

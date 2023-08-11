@@ -76,9 +76,11 @@
                             {{ form_label(categorie, null, {"label_attr": {"class": "btn btn-outline-dark", "for": "check-" ~ categorie.vars.value}}) }}
                         </div>
                     {% endfor %}
-                    <a class="btn btn-outline-dark fw-bold" href="/gestions/categories">
+                    {% if app.user is not null and 'ROLE_ADMIN' in app.user.roles %}
+                    <a class="btn btn-outline-dark fw-bold" href="/gestions/add-categories">
                         <i class="bi bi-patch-plus me-2"></i>Ajouter une catégorie
                     </a>
+                    {% endif %}
                 </fieldset>
 
             </div>

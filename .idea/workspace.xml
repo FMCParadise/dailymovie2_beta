@@ -5,10 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4376c56f-9a8a-441e-adb2-18ffacde2de3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/0bb18ffe1a0a3004f6e078dc090ef8c5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/111b1cc52a251b21bc27907ece072c9a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/281f48dbd52a42c7d9c7bf3700f5b067.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/402a079622143ba4d73164df6fad6a08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/4fc86364e4e8518546506e9cc600d0f2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/5449e53d35a0e79efd341edb9f27eda0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/589aad67ed25d7f628f5f452087d747f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/790d62b0e5575b32b9d5bae950700f45.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/876e4d803f7a52e68a54e0fc43b8a04f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/c67b01d8fe5d4bd8eec6655cdc151d34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/e54766117118da4950d71c8fec9c7c49.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/e98eb202f71445b5caaa4d017015359b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/eae38546777542374155d520afa86b90.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/eeea1b50832b7a186da75f8c47333e86.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/avatar/f655bdaf651a049ae142fd5e12080f03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64342f246dba43c69e28526046cd8f6d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d639fcef50d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d639fdcd802.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d639fec7c2d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d639ffa7553.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d63a0094e4b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d63a02053cb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d63cb427afd.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d63cb54dd6e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d63cb6219ff.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d63cb7322bf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d63cb8093e4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/full/64d63cb9435b7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64342f246dba43c69e28526046cd8f6d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d639fcef50d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d639fdcd802.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d639fec7c2d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d639ffa7553.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d63a0094e4b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d63a02053cb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d63cb427afd.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d63cb54dd6e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d63cb6219ff.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d63cb7322bf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d63cb8093e4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/square/64d63cb9435b7.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataFixtures/PostsFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/PostsFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UsersFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UsersFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gestions/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestions/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +64,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -171,33 +213,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "last_opened_file_path": "C:/laragon/www/oo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Symfony2.SettingsForm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/laragon/www/oo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Symfony2.SettingsForm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Twig"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Twig&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\laragon\www\dailymovies2_beta\public" />
