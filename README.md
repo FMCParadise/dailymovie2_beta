@@ -38,7 +38,7 @@ Comment installer ? :
  
 **2. Aller dans le dossier du projet cloner**
 	
-	> cd <NOM_DU_DOSSIER_DU_PROJET>
+	> cd dailymovies2_beta
 
 **3. Initialisation de symfony :**
 	
@@ -62,12 +62,19 @@ Pour finir :
 
 	> symfony console doctrine:migration:migrate
 
+Écrire : `yes`
+
 **6. Charger les DataFixtures :**
+
 Toujours dans la console, taper : 
 
 	> symfony console doctrine:fixtures:load 
 
+ Écrire : `yes`
+
 **7. Lancement du serveur symfony**
-	
 
 	> symfony serve
+
+Cliquer sur l'adresse donnée ( Ctrl + clique gauche )
+
