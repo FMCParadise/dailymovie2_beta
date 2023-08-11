@@ -12,17 +12,11 @@
 
   ## ***Attention***
 
-**Passer le APP_ENV du .env de dev a prod**
-
->APP_ENV=dev -> APP_ENV=prod
-
 - Aucune catégorie ne peut être supprimer si elle contient des articles.
 - Aucun utilisateur ne peut être supprimer si il a des articles.
 - Login par défaut est `admin@admin.fr`
 - Et le mot de passe par défaut est `password123`
   
-
-
 
 
 Prérequis : 
@@ -75,6 +69,13 @@ Toujours dans la console, taper :
 	> symfony console doctrine:fixtures:load 
 
  Écrire : `yes`
+
+   ## ***Attention***
+
+**Passer le APP_ENV du .env de dev a prod**
+
+>APP_ENV=dev -> APP_ENV=prod
+
 
 **7. Lancement du serveur symfony**
 
