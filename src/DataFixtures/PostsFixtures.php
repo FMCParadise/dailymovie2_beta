@@ -23,6 +23,20 @@ class PostsFixtures extends Fixture implements DependentFixtureInterface
     {
         $this->dir_full = $parameter->get('full_images_directory');
         $this->dir_square = $parameter->get('square_images_directory');
+
+
+        //create dir full if not existe
+        if (!is_dir($this->dir_full)) {
+            mkdir($this->dir_full, 0700, true);
+        }
+
+        //create dir square if not existe
+        if (!is_dir($this->dir_square)) {
+            mkdir($this->dir_square, 0700, true);
+        }
+
+
+
     }
 
 

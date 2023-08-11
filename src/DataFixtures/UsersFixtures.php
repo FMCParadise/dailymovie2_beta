@@ -20,6 +20,12 @@ class UsersFixtures extends Fixture
         $this->passwordHasher = $passwordHasher;
 
         $this->dir_avatar = $parameter->get('avatar_images_directory');
+
+        //create dir avatar if not existe
+        if (!is_dir($this->dir_avatar)) {
+            mkdir($this->dir_avatar, 0700, true);
+        }
+
     }
     public function load(ObjectManager $manager): void
     {
@@ -33,6 +39,8 @@ class UsersFixtures extends Fixture
         $adminUser->setPassword($hashedPassword);
         $adminUser->setName($faker->firstName);
         $adminUser->setFirstName($faker->lastName);
+
+
         $fileName =  $faker->image($this->dir_avatar, 200, 200, null, false);
         $adminUser->setAvatar($fileName);
         $adminUser->setRgpd(1);
