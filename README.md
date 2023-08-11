@@ -78,3 +78,4 @@ Toujours dans la console, taper :
 
 Cliquer sur l'adresse donnée ( Ctrl + clique gauche )
 
+Et aller sur /login et se connecter en tant qu'administrateur avec `admin@admin.fr` et `password123`
