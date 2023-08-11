@@ -25,7 +25,7 @@ Prérequis :
  >- PHP
  >- Composer
  >- Symfony CLI (en option, mais recommandé)
- >- Symfony ( 6.3 )
+ >- Symfony 6.3 ( 6.2 minimum )
  >- Un serveur de base de données ( MySQL )
 
 ## Toutes les étapes sont à suivre dans l'ordre indiqué.
