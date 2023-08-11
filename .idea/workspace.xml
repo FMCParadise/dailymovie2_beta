@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4376c56f-9a8a-441e-adb2-18ffacde2de3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataFixtures/PostsFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/PostsFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataFixtures/UsersFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UsersFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error403.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error403.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +229,7 @@
       <workItem from="1690894012885" duration="15317000" />
       <workItem from="1691150013704" duration="9559000" />
       <workItem from="1691390940573" duration="10404000" />
-      <workItem from="1691403455128" duration="45239000" />
+      <workItem from="1691403455128" duration="47108000" />
     </task>
     <servers />
   </component>

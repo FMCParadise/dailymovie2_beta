@@ -33,7 +33,7 @@ class UsersFixtures extends Fixture
 
         //create admin
         $adminUser =  new user() ;
-        $adminUser = $adminUser->setEmail($faker->unique()->email);
+        $adminUser = $adminUser->setEmail("admin@admin.fr");
         $adminUser->setRoles(['ROLE_ADMIN']);
         $hashedPassword = $this->passwordHasher->hashPassword($adminUser, 'password123');
         $adminUser->setPassword($hashedPassword);

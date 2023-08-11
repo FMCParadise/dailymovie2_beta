@@ -15,16 +15,11 @@
 - Aucune catégorie ne peut être supprimer si elle contient des articles
 - Aucun utilisateur ne peut être supprimer si il a des articles
 
-
-
-  
-
-
 Prérequis : 
  >- PHP
  >- Composer
  >- Symfony CLI (en option, mais recommandé)
- >- Un serveur de base de données (MySQL, PostgreSQL, etc.)
+ >- Un serveur de base de données (MySQL)
 
 ## Toutes les étapes sont à suivre dans l'ordre indiqué.
 

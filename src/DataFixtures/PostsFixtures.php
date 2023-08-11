@@ -59,7 +59,7 @@ class PostsFixtures extends Fixture implements DependentFixtureInterface
             for ($i = 0; $i < 2; $i++) {
                 $post = new Posts();
                 $post->setUserId($user);
-                $post->setContent($faker->paragraph);
+                $post->setContent($faker->text(1000));
                 $post->setSlug(Slugger::slugify("titre du film") . '-' . $faker->randomNumber(4));
                 $post->setTitle('titre du film');
                 $randomCategories = $faker->randomElements($categories, mt_rand(1, 9));
