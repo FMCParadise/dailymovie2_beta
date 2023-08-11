@@ -12,18 +12,21 @@
 
   ## ***Attention***
   
-
 - Aucune catégorie ne peut être supprimer si elle contient des articles.
 - Aucun utilisateur ne peut être supprimer si il a des articles.
 - Login par défaut est `admin@admin.fr`
 - Et le mot de passe par défaut est `password123`
+  
+
+
+
 
 Prérequis : 
  >- PHP
  >- Composer
  >- Symfony CLI (en option, mais recommandé)
- >- Un serveur de base de données (MySQL)
  >- Symfony 6.3 ( 6.2 minimum )
+ >- Un serveur de base de données ( MySQL )
 
 ## Toutes les étapes sont à suivre dans l'ordre indiqué.
 
@@ -73,6 +76,6 @@ Toujours dans la console, taper :
 
 	> symfony serve
 
-Cliquer sur l'adresse donnée ( Ctrl + clique gauche )
+Aller sur : https://127.0.0.1:8000/
 
-Et aller sur /login et se connecter en tant qu'administrateur avec `admin@admin.fr` et `password123`
+Rajouter /login dans l'url et se connecter en tant qu'administrateur avec `admin@admin.fr` et `password123`
