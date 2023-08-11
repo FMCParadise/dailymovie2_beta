@@ -11,7 +11,11 @@
 - Un administrateur peut modifier ou supprimer une ou des catégories.
 
   ## ***Attention***
-  
+
+**Passer le APP_ENV du .env de dev a prod**
+
+>APP_ENV=dev -> APP_ENV=prod
+
 - Aucune catégorie ne peut être supprimer si elle contient des articles.
 - Aucun utilisateur ne peut être supprimer si il a des articles.
 - Login par défaut est `admin@admin.fr`
