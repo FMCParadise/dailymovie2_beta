@@ -23,6 +23,7 @@ Prérequis :
  >- PHP
  >- Composer
  >- Symfony CLI (en option, mais recommandé)
+ > - Symfony ( 6.3 )
  >- Un serveur de base de données ( MySQL )
 
 ## Toutes les étapes sont à suivre dans l'ordre indiqué.
@@ -37,20 +38,13 @@ Comment installer ? :
 	
 	>cd <NOM_DU_DOSSIER_DU_PROJET>
 
-**3. Installation des dépendances a l'aide de `composer`**
+**3. Initialisation de symfony :**
+	
+	>symfony init
+
+**4. Installation des dépendances a l'aide de `composer`**
 	
 	>composer install
-
-**4. Configuration de la base de données.**
-
-
-***Ligne a remplacer dans le .env*** ( Recherchez avec CTRL + F )
-	
-	>DATABASE_URL=mysql://nom_utilisateur:mot_de_passe@hote/nom_base_de_donnees
-
-Par : 
-
- 	>DATABASE_URL=mysql://root@127.0.0.1:3306/daily-movies-beta?serverVersion=8&charset=utf8mb4
 
 **5. Création et Mise à jour de la base de données**
 
@@ -64,14 +58,14 @@ Ensuite :
 
 Pour finir :
 
-	>symfony console  doctrine:migration:migrate
+	>symfony console doctrine:migration:migrate
 
-**7. Charger les DataFixtures :**
+**6. Charger les DataFixtures :**
 Toujours dans la console, taper : 
 
 	>symfony console doctrine:datafixtures:load 
 
-**8. Lancement du serveur symfony**
+**7. Lancement du serveur symfony**
 	
 
 	>symfony serve
