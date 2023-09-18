@@ -60,7 +60,7 @@ Pour finir :
 
 	> symfony console doctrine:migration:migrate
 
-Écrire : `yes`
+Confirmer avec `yes`
 
 **6. Charger les DataFixtures :**
 
@@ -68,7 +68,7 @@ Toujours dans la console, taper :
 
 	> symfony console doctrine:fixtures:load 
 
- Écrire : `yes`
+ Confirmer avec `yes`
 
    ## ***Attention***
 
